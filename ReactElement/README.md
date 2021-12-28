@@ -1,6 +1,6 @@
 # React JS Basic
 
-지금은 안쓰는 옛 코드 -> JSX
+지금은 안쓰는 옛 코드 -> [JSX](https://ko.reactjs.org/docs/introducing-jsx.html)
 
 ## React Element
 
