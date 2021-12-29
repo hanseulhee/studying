@@ -72,3 +72,18 @@ ReactDOM.render(<App />, root);
 ### Vanila Js와 비교하자면
 
 React JS는 HTML 요소를 생성하거나 찾지 않아도 되고 eventListener을 더하거나 UI를 업데이트해주지 않아도 된다.
+
+
+### state를 바꾸는 2가지 방법
+
+- 직접 값을 설정하기 : setState(state + 1)
+- 함수를 전달하기: setState(state => state + 1) (함수의 첫번째 인자는 현재 값이다.)
+
+현재 state랑 관련이 없는 값을 새로운 state로 하고 싶은 경우 직접 할당, 현재 state를 바탕으로 다음 state를 계산하고 싶다면 함수를 사용한다. 함수를 사용한다면 예상치 못한 업데이트가 어디선가 일어났다고 해도 혼동을 방지할 수 있다.
+
+
+### Unit converter (단위 변환)
+
+
+
+### Money converter
