@@ -138,7 +138,7 @@ input의 value를 state로 연결해준다. 이렇게 한다면 어디서든 inp
 
 ### Unit converter (단위 변환)
 
-Hours input의 value는 state에 있는 minutes 값이지만 minutes / 60를 해 시간단위로 변환시켜주었다.
+Hours input의 value는 state에 있는 minutes 값이지만 minutes / 60를 해 분을 시간단위로 변환시켜주었다.
 Math.round를 이용해 반올림을 하였다.
 
 Hours input은 onChange event가 없기 때문에 아무 입력을 할 수 없다.
@@ -149,9 +149,69 @@ Hours input은 onChange event가 없기 때문에 아무 입력을 할 수 없�
 
 reset 버튼을 이용해 state를 리스닝하거나 연결한 모든 것들은 전부 0으로 돌려진다.
 
+### flip function
+
+단위 변환을 뒤집는 함수 (disabled <-> enabled)
+Hours를 Minutes로 단위변환을 해준다.
+
+```js
+function App() {
+  const [amount, setAmount] = React.useState(0);
+  const [flipped, setFlipped] = React.useState(false);
+  const onChange = (event) => {
+    setAmount(event.target.value);
+  };
+  const reset = () => setAmount(0);
+  const onFlip = () => {
+    reset();
+    setFlipped((current) => !current);
+  };
+  return (
+    <div>
+      <h1 className="hi">Converter</h1>
+      <label htmlFor="minutes">Minutes</label>
+      <div>
+        {" "}
+        <input
+          value={flipped ? amount * 60 : amount}
+          id="minutes"
+          placeholder="Minutes"
+          type="number"
+          onChange={onChange}
+          disabled={flipped}
+        />
+      </div>
+
+      <div>
+        <label htmlFor="hours">Hours</label>
+        <input
+          value={flipped ? amount : Math.round(amount / 60)}
+          id="hours"
+          placeholder="Hours"
+          type="number"
+          onChange={onChange}
+          disabled={!flipped}
+        />
+      </div>
+
+      <button onClick={reset}>Reset</button>
+      <button onClick={onFlip}>Flip</button>
+      <h4>You want to convert {minutes}</h4>
+    </div>
+  );
+}
+```
+
+flipped은 false를 초기값으로 가지고 시작한다.
 
 ### Money converter
 
-```
 
-```
+
+### useState 연습
+
+[practice.html](./practice.html)
+
+**onClick vs onChange**
+
+onClick는 말그대로 클릭했을 때 나오는 이벤트이고 onChange는 텍스트칸에 Value 값이 변경되는 등 변화할 때 나오는 이벤트다.
