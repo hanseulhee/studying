@@ -12,11 +12,24 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js "></script>
   <script type="text/babel">
     function App() {
+      const [minutes, setMinutes] = React.useState();
+      const onChange = (event) => {
+        setMinutes(event.target.value);
+      };
       return (
         <div>
-          <h1>Converter</h1>
-          <input placeholder="Minutes" type="number" />
-          <input placeholder="Hours" type="number" />
+          <h1 className="hi">Converter</h1>
+          <label htmlFor="minutes">Minutes</label>
+          <input
+            value={minutes}
+            id="minutes"
+            placeholder="Minutes"
+            type="number"
+            onChange={onChange}
+          />
+          <h4>You want to convert {minutes}</h4>
+          <label htmlFor="hours">Hours</label>
+          <input id="hours" placeholder="Hours" type="number" />
         </div>
       );
     }
