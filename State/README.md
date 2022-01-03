@@ -132,9 +132,23 @@ function App() {
 }
 ```
 
+input의 value를 state로 연결해준다. 이렇게 한다면 어디서든 input의 value를 수정해줄 수 있다.
+
 사용자가 입력한 Input의 value를 바탕으로 component를 업데이트해준다.
 
 ### Unit converter (단위 변환)
+
+Hours input의 value는 state에 있는 minutes 값이지만 minutes / 60를 해 시간단위로 변환시켜주었다.
+Math.round를 이용해 반올림을 하였다.
+
+Hours input은 onChange event가 없기 때문에 아무 입력을 할 수 없다.
+
+```js
+<input value={minutes / 60} id="hours" placeholder="Hours" type="number" />
+```
+
+reset 버튼을 이용해 state를 리스닝하거나 연결한 모든 것들은 전부 0으로 돌려진다.
+
 
 ### Money converter
 
