@@ -51,7 +51,7 @@
           </div>
 
           <button onClick={reset}>Reset</button>
-          <button onClick={onFlip}>Flip</button>
+          <button onClick={onFlip}>{flipped ? "Turn back" : "Invert"}</button>
           <h4>You want to convert {amount}</h4>
         </div>
       );

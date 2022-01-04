@@ -202,7 +202,13 @@ function App() {
 }
 ```
 
-flipped은 false를 초기값으로 가지고 시작한다.
+true or false에 따라 disabled, enabled로 만든다.
+
+flipped은 false를 초기값으로 가지고 시작한다. onFlip 함수는 flipped가 true라면 false, false라면 true로 바꾸어준다. flipped 상태에 따라 input을 disabled 또는 enabled로 바꾸어준다.
+
+flipped이 true라는 것은 시에서 분으로 변환 중인 상태를 뜻한다. 따라서 flipped가 true라면 minutes input은 disabled가 된다.
+
+Minutes, Hours input 둘 다 onChange 함수를 가지고 있다. onChange 함수는 input에 입력한 값을 state에 전달한다. 두 input 중 enabled 상태인 input에서 amount state를 수정할 수 있다.
 
 ### Money converter
 
