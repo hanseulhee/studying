@@ -207,16 +207,24 @@ true or false에 따라 disabled, enabled로 만든다.
 flipped은 false를 초기값으로 가지고 시작한다. onFlip 함수는 flipped가 true라면 false, false라면 true로 바꾸어준다. flipped 상태에 따라 input을 disabled 또는 enabled로 바꾸어준다.
 
 flipped이 true라는 것은 시에서 분으로 변환 중인 상태를 뜻한다. 따라서 flipped가 true라면 minutes input은 disabled가 된다.
-
 Minutes, Hours input 둘 다 onChange 함수를 가지고 있다. onChange 함수는 input에 입력한 값을 state에 전달한다. 두 input 중 enabled 상태인 input에서 amount state를 수정할 수 있다.
-
-### Money converter
-
 
 
 ### useState 연습
 
 [practice.html](./practice.html)
+
+#### divide(분할)
+
+MinutesToHours, KmToMiles 두 컴포넌트를 렌더링하는 것이 아닌 원하는 단위 변환을 선택할 수 있도록 하기
+
+state를 변화시킬 때 모든게 새로고침된다. React JS는 re-render가 필요한 것들을 re-render한다.
+
+! 리렌더링 조건
+
+1) props이 바뀔때 2) state가 바뀔때 3) 부모 컴포넌트가 리렌더링 될 때
+
+#### KmToMiles
 
 **onClick vs onChange**
 
