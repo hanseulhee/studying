@@ -226,6 +226,8 @@ state를 변화시킬 때 모든게 새로고침된다. React JS는 re-render가
 
 #### KmToMiles
 
+1km는 0.6214마일과 같다. 
+
 **onClick vs onChange**
 
 onClick는 말그대로 클릭했을 때 나오는 이벤트이고 onChange는 텍스트칸에 Value 값이 변경되는 등 변화할 때 나오는 이벤트다.
