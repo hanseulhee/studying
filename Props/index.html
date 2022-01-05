@@ -11,14 +11,22 @@
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js "></script>
   <script type="text/babel">
-    function Btn(props) {
-      return <button>Save Changes</button>;
+    function Btn({ text, big }) {
+      return (
+        <button
+          style={{
+            fontSize: big ? 18 : 16,
+          }}
+        >
+          {text}
+        </button>
+      );
     }
     function App() {
       return (
         <div>
-          <Btn text="Save Changes" />
-          <Btn text="Continue" />
+          <Btn text="Save Changes" big={true} />
+          <Btn text="Continue" big={false} />
         </div>
       );
     }
