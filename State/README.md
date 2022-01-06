@@ -1,5 +1,11 @@
 # State
 
+
+### Result
+
+![ezgif com-gif-maker (17)](https://user-images.githubusercontent.com/63100352/148419099-24a04eb4-eb9f-4fc9-a56f-3dacacbe497c.gif)
+
+
 React JS는 데이터가 바뀔 때마다 component를 리렌더링하고 UI에서 바뀐 부분만 업데이트한다.
 
 component나 JSX에 변수를 추가하고 싶을 땐 중괄호를 이용한다.

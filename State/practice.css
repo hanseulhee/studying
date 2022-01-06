@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #dcdee0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Noto Sans", sans-serif;
+}
+
+.title {
+  color: #006ba6;
+  font-size: 42px;
+}
+
+select {
+  all: unset;
+  width: 300px;
+  padding: 0.8em 0.5em;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+option {
+  background-color: black;
+  color: white;
+  font-size: 15px;
+}
+
+.summary {
+  font-weight: 400;
+}
+
+button {
+  all: unset;
+  width: 130px;
+  height: 50px;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-right: 20px;
+  background-color: #1976d2;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: white;
+  color: #1976d2;
+  -webkit-transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.3s;
+}
+
+label {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+input {
+  all: unset;
+  width: 300px;
+  height: 25px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: white;
+}
+/*# sourceMappingURL=practice.css.map */
