@@ -117,7 +117,7 @@ JSX
 </div>
 ```
 
-## React JS에서 form 다루기
+### React JS에서 form 다루기
 
 ```js
 function App() {

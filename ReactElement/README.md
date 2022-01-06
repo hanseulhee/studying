@@ -33,7 +33,7 @@ ReactDOM.render(container, root);
 ```
 
 
-### arrow function
+## arrow function
 
 소괄호는 retrun 한다는 것을 전제로 하는 것이고 중괄호는 return을 안한다는 것을 전제로 한다.
 
