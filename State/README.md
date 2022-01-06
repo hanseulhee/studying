@@ -79,7 +79,18 @@ React JS는 HTML 요소를 생성하거나 찾지 않아도 되고 eventListener
 
 현재 state랑 관련이 없는 값을 새로운 state로 하고 싶은 경우 직접 할당, 현재 state를 바탕으로 다음 state를 계산하고 싶다면 함수를 사용한다. 함수를 사용한다면 예상치 못한 업데이트가 어디선가 일어났다고 해도 혼동을 방지할 수 있다.
 
+
+<div id="1">
+
 ### JSX
+
+
+JSX는 JavaScript를 확장한 문법이다.
+
+HTML과 비슷해 JSX로 React 요소를 만드는 것이 굉장히 편하다. JSX는 어플리케이션을 여러가지 작은 요소로 나누어 관리할 수 있다.
+
+
+[@seulhyi_JSX](https://velog.io/@seulhyi/JSX)
 
 ```js
 <div>

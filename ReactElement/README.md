@@ -32,11 +32,6 @@ const container = React.createElement("div", null, [h3, btn]);
 ReactDOM.render(container, root);
 ```
 
-## JSX
-
-JSX는 JavaScript를 확장한 문법이다.
-
-HTML과 비슷해 JSX로 React 요소를 만드는 것이 굉장히 편하다. JSX는 어플리케이션을 여러가지 작은 요소로 나누어 관리할 수 있다.
 
 ### arrow function
 
