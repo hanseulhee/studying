@@ -1,9 +1,9 @@
 # State
 
-
 ### Result
 
-![ezgif com-gif-maker (17)](https://user-images.githubusercontent.com/63100352/148419099-24a04eb4-eb9f-4fc9-a56f-3dacacbe497c.gif)
+
+![ezgif com-gif-maker (18)](https://user-images.githubusercontent.com/63100352/148420766-074aa94d-7e73-40db-93cd-266ee586aa73.gif)
 
 
 React JS는 데이터가 바뀔 때마다 component를 리렌더링하고 UI에서 바뀐 부분만 업데이트한다.
@@ -85,16 +85,13 @@ React JS는 HTML 요소를 생성하거나 찾지 않아도 되고 eventListener
 
 현재 state랑 관련이 없는 값을 새로운 state로 하고 싶은 경우 직접 할당, 현재 state를 바탕으로 다음 state를 계산하고 싶다면 함수를 사용한다. 함수를 사용한다면 예상치 못한 업데이트가 어디선가 일어났다고 해도 혼동을 방지할 수 있다.
 
-
 <div id="1">
 
 ### JSX
 
-
 JSX는 JavaScript를 확장한 문법이다.
 
 HTML과 비슷해 JSX로 React 요소를 만드는 것이 굉장히 편하다. JSX는 어플리케이션을 여러가지 작은 요소로 나누어 관리할 수 있다.
-
 
 [@seulhyi_JSX](https://velog.io/@seulhyi/JSX)
 
@@ -226,7 +223,6 @@ flipped은 false를 초기값으로 가지고 시작한다. onFlip 함수는 fli
 flipped이 true라는 것은 시에서 분으로 변환 중인 상태를 뜻한다. 따라서 flipped가 true라면 minutes input은 disabled가 된다.
 Minutes, Hours input 둘 다 onChange 함수를 가지고 있다. onChange 함수는 input에 입력한 값을 state에 전달한다. 두 input 중 enabled 상태인 input에서 amount state를 수정할 수 있다.
 
-
 ### useState 연습
 
 [practice.html](./practice.html)
@@ -239,11 +235,11 @@ state를 변화시킬 때 모든게 새로고침된다. React JS는 re-render가
 
 ! 리렌더링 조건
 
-1) props이 바뀔때 2) state가 바뀔때 3) 부모 컴포넌트가 리렌더링 될 때
+1. props이 바뀔때 2) state가 바뀔때 3) 부모 컴포넌트가 리렌더링 될 때
 
 #### KmToMiles
 
-1km는 0.6214마일과 같다. 
+1km는 0.6214마일과 같다.
 
 **onClick vs onChange**
 
