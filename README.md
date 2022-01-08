@@ -3,6 +3,7 @@
 - [React Element](./ReactElement/README.md)
 - [Props](./Props/README.md)
 - [Prop Types](./Props/README.md/#2)
+- [React Memo](./Props/README.md/#4)
 - [JSX](./State/README.md/#1)
 - [State](./State/README.md)
 

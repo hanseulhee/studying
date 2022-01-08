@@ -58,7 +58,15 @@ function App() {
 
 onClick을 커스텀 컴포넌트에 넣는다면 이것은 단지 하나의 prop일 뿐 이벤트 리스너가 아니다. 여기서 onClick은 단순히 props의 이름이다. prop들은 자동적으로 return문 안으로 들어가지 않고 직접 prop들을 넣어줘야 한다.
 
+
+<div id="4"></div>
+
+
 ### React Memo
+
+React Memo는 컴포넌트의 props가 바뀌지 않았다면 리렌더링을 방지하여 컴포넌트의 리렌더링 성능 최적화를 해줄 수 있게 하는 함수이다. 즉 필요한 상황에서만 리렌더링을 하도록 설정한다.
+
+React.memo()안에 컴포넌트(여기서는 함수)를 인자로 넣는다.
 
 ```js
 function Btn({ text, onClick }) {
@@ -158,3 +166,9 @@ function Btn({ text, fontSize = 16 }) {
 
 만약 fontSize가 존재하지 않는다면(undefined) 값을 줄 수 있다. fontSize의 default값을 16으로 지정해주었다. 이것은 fontSize가 prop으로서 설정되지 않은 두 번째 Btn에만 해당된다.
 즉 정의되지 않은 변수에 관한 기본값을 줄 수 있다. (Javascript 문법)
+
+
+### 총정리
+
+어떤 prop들을 받을 수 있는 Btn 컴포넌트를 만들어 복붙할 필요가 없다.
+prop들은 렌더링되고 있는 Btn 컴포넌트의 부모로부터 전달되고 있다. text와 fontSize 두 prop을 받고 있고 이 Btn 컴포넌트의 이 prop들에 접근할 수 있는 방법은 Btn 컴포넌트 함수의 첫 번째 인자 안에서 가능하다. 첫 번째 인자 안에서 전달된 모든 prop들을 하나의 오브젝트로서 받는다.
