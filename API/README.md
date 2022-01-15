@@ -58,3 +58,12 @@ const fetchUsers = async () => {
 ```
 
 try 안은 실행될 선언들이고 catch 안은 try 블록에서 예외가 발생하였을 때 실행될 선언들이다.
+
+
+### API 재요청
+
+fetchUsers 함수를 바깥으로 꺼내 버튼을 만들어 해당 함수를 연결해준다.
+
+
+### useAsync Custom Hook
+
