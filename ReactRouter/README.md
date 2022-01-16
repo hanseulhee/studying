@@ -23,7 +23,7 @@ React는 SPA (Single Page Application) 방식으로 여러개의 페이지를 �
 
 src/index.js 파일에서 react-router-dom에 내장되어 있는 BrowserRouter라는 컴포넌트를 사용한다.
 
-[BrowserRouter VS Hash Router]()
+[BrowserRouter VS Hash Router](https://github.com/hanseulhee/react-for-beginners/tree/master/docs/movie)
 
 
 ### Route: 특정 주소에 컴포넌트 연결하기
@@ -51,6 +51,126 @@ import { Link } from 'react-router-dom';
 
 ### 중첩된 라우트
 
+전
+```js
+function App() {
+  return (
+    <Routes>
+      <Route path="/articles" element={<Articles />} />
+      <Route path="/articles/:id" element={<Article />} />
+    </Routes>
+  );
+}
+```
+
+후
+```js
+function App() {
+  return (
+    <Routes>
+      <Route path="/articles" element={<Articles />}>
+        <Route path=":id" element={<Article />} />
+      </Route>
+    </Routes>
+  );
+}
+```
+
+### Outlet
+
+Route 의 children으로 들어가는 JSX 엘리먼트를 보여주는 역할을 한다.
+
+```js
+import { Link, Outlet } from 'react-router-dom';
+
+const Articles = () => {
+  return (
+    <div>
+      <Outlet />
+    </div>
+  );
+};
+```
+
+### 공통 레이아웃 컴포넌트
+
+컴포넌트를 따로 만들어두고 각 페이지 컴포넌트에서 재사용하는 방법말고 중첩된 라우트와 Outlet을 활용하여 구현할 수도 있다.
+
+
+Layout.js
+
+```js
+const Layout = () => {
+  return (
+    <div>
+      <header>Header</header>
+      <main>
+        <Outlet />
+      </main>
+    </div>
+  );
+};
+```
+각 페이지 컴포넌트가 보여져야 하는 부분에 Outlet 컴포넌트를 사용해주었다.
+
+
+
+App.js
+
+```js
+<Route element={<Layout />}>
+  <Route path="/" element={<Home />} />
+  <Route path="/detail" element={<Detail />} />
+</Route>
+```
+
+
+### index props
+
+Route 컴포넌트에는 index라는 props가 있다. 이 props는 path="/"와 동일한 의미를 가진다.
+
+
+전
+```js
+<Route path="/" element={<Home />} />
+```
+
+
+후
+```js
+<Route index element={<Home />} />
+```
+
+index props는 path="/"와 동일한 역할을 하지만 이를 좀 더 명시적으로 표현하는 방법이다.
+
 
 
 ### React Router 부가기능
+
+
+#### useNavigate
+
+navigate 함수를 사용할 때 파라미터가 숫자 타입이라면 앞으로 가거나, 뒤로 간다.
+
+
+#### replace
+
+replace를 사용하면 페이지를 이동할 때 현재 페이지가 페이지 기록에 남지 않는다.
+
+```js
+const goArticles = () => {
+  navigate('/articles', { replace: true });
+};
+```
+
+
+#### NavLink
+
+NavLink 컴포넌트는 링크에서 사용하는 경로가 현재 Route의 경로와 일치하는 경우 특정 스타일 또는 CSS 클래스를 적용한다.
+
+
+```js
+<NavLink style={({isActive}) => isActive ? activeStyle : undefined} />
+```
+
+![ezgif com-gif-maker (19)](https://user-images.githubusercontent.com/63100352/149664900-c2d3c154-ef53-4351-8e43-472a9dcbf3b7.gif)
