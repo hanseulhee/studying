@@ -19,16 +19,15 @@ npm install --save typescript
 
 ### TypeScript란?
 
-타입스크립트는 자바스크립트의 확장된 언어로 자바스크립트에 "타입"을 부여한 언어다. 
+타입스크립트는 자바스크립트의 확장된 언어로 자바스크립트에 "타입"을 부여한 언어다.
 타입스크립트는 자바스크립트와 달리 브라우저에서 실행하려면 파일을 한번 변환해주어야 한다. (=컴파일)
-
 
 [TypeScript Handbook 한글 문서](https://typescript-kr.github.io/)
 
 
 ### 왜 TypeScript?
 
-타입스크립트는 특정 변수 또는 상수의 타입을 지정할 수 있고 사전에 지정한 타입이 아닌 값이 설정될 때 에러가 발생한다. 따라서 에러를 사전에 방지할 수 있다. 
+타입스크립트는 특정 변수 또는 상수의 타입을 지정할 수 있고 사전에 지정한 타입이 아닌 값이 설정될 때 에러가 발생한다. 따라서 에러를 사전에 방지할 수 있다.
 
 
 ### TypeScript 기본 타입
@@ -44,24 +43,22 @@ Boolean, Number, String, Object, Array, Tuple, Enum, Any, Void, Null, Undefined,
 let isLoggedIn: boolean = false;
 ```
 
-
 #### Number
 
 ```ts
 let num: number = 10;
 ```
 
-
 #### String
 
 ```ts
-let str: string = 'hi';
+let str: string = "hi";
 ```
 
 #### Array
 
 ```ts
-let arr: number[] = [1, 2, 3]
+let arr: number[] = [1, 2, 3];
 ```
 
 ```ts
@@ -76,16 +73,17 @@ let arr: Array<number> = [1, 2, 3];
 let arr: [string, number] = ["hi", 10];
 ```
 
-
 #### Enum
 
 특정 값(상수)들의 집합을 의미한다.
 
 ```ts
-enum Avengers {IronMan, Thor}
+enum Avengers {
+  IronMan,
+  Thor,
+}
 let hero: Avengers = Avengers.Capt;
 ```
-
 
 #### Any
 
@@ -100,10 +98,11 @@ let str: any = "hi";
 
 변수에는 undefined와 null만 할당하고 함수에는 반환 값을 설정할 수 없는 타입이다.
 
+
 ```ts
 let unuseful: void = undefined;
 function notuse(): void {
-  console.log('sth');
+  console.log("sth");
 }
 ```
 
@@ -112,8 +111,56 @@ function notuse(): void {
 
 함수의 끝에 절대 도달하지 않는다는 의미를 지닌 타입이다.
 
+
 ```ts
 function neverEnd(): never {
   while (true) {}
 }
 ```
+
+
+### 함수에서 타입 정의
+
+타입스크립트를 사용할 때 배열의 내장함수를 사용할 때에도 타입 유추가 쉽다.
+함수에서 아무것도 반환하지 않아야 한다면 반환 타입을 void로 설정하면 된다.
+
+
+
+### Interface
+
+interface는 클래스 또는 객체를 위한 타입을 지정할 때 사용된다.
+
+특정 조건을 준수해야 함을 명시할 때 interface를 사용한다.
+implements를 사용하여 해당 클래스가 특정 interface의 요구사항을 구현한다는 것을 명시한다.
+
+
+
+### 일반 객체를 interface로 타입 설정하기
+
+```ts
+interface Person {
+  name: string;
+  age?: number;
+}
+interface Developer {
+  name: string;
+  age?: number;
+  skills: string[];
+}
+```
+
+Person과 Developer의 형태가 유사한 모습을 볼 수 있다.
+
+```ts
+interface Person {
+  name: string;
+  age?: number;
+}
+interface Developer extends Person {
+  skills: string[];
+}
+```
+
+이와 같이 extends해 상속 받을 수 있다. 
+
+물음표는 설정을 해도 되고 안해도 되는 값이라는 것을 의미한다.
