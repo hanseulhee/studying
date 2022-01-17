@@ -164,3 +164,44 @@ interface Developer extends Person {
 이와 같이 extends해 상속 받을 수 있다. 
 
 물음표는 설정을 해도 되고 안해도 되는 값이라는 것을 의미한다.
+
+
+
+### React.FC
+
+[Don’t use FunctionComponent<P>/FC<P>](https://medium.com/@martin_hotell/10-typescript-pro-tips-patterns-with-or-without-react-5799488d6680#78b9)
+
+
+```ts
+type GreetingsProps = {
+  name: string;
+  children: React.ReactNode;
+};
+```
+
+React.FC를 사용할 때 props 타입을 Generics로 넣어 사용한다.
+props에 기본적으로 children이 들어가 있는데 children이 있어야 하는 경우 없어야 하는 경우가 있다면 이에 대한 처리를 Props 타입 안에 children을 명시해야한다.
+
+
+```ts
+const Greetings: React.FC<GreetingsProps> = ({ name, mark }) => (
+  <div>Hello, {name} {mark}</div>
+);
+
+Greetings.defaultProps = {
+  mark: "!"
+}
+```
+
+mark를 defaultProps로 넣었지만 오류가 뜬다.
+
+```ts
+const Greetings = ({ name, mark }: GreetingsProps) => (
+  <div>Hello, {name} {mark}</div>
+);
+```
+
+React.FC를 사용하지 않는다면 잘 작동한다.
+
+
+이와 같은 이유로 현재는 React.FC를 사용하지 않는 것을 권장한다.
