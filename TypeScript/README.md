@@ -269,3 +269,32 @@ const App: React.FC = () => {
   return <Greetings name="Hello" onClick={onClick} />;
 };
 ```
+
+
+### Generics
+
+제너릭은 타입스크립트에서 함수, 클래스, interface, type을 사용하게 될 때 여러 종류의 타입에 대하여 호환을 맞춰야 하는 상황에서 사용하는 문법이다.
+
+```ts
+function merge<A, B>(a: A, b: B): A & B{
+  return {
+    ...a,
+    ...b
+  };
+}
+
+const merged = merge({foo: 1}, {bar: 1});
+```
+
+<타입 이름>을 넣어 사용하면 제너릭에 해당하는 타입에는 뭐든지 들어올 수 있고 사용할 때 타입이 깨지지 않는다.
+
+
+### Typescript에서 useState
+
+useState를 사용할 때 제너릭을 사용하지 않아도 타입을 유추하기 때문에 생략 가능하다. 
+그러나 상태가 null일 수도 있고 아닐 수도 있을 때 제너릭을 사용하면 좋다.
+
+```ts
+type Information = { name: string; description: string };
+const [info, setInformation] = useState<Information | null>(null);
+```
