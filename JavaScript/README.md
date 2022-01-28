@@ -1,11 +1,13 @@
 # JavaScript
 
-JavaScript는 HTML과 CSS로 만들어진 웹페이지를 동적으로 변경해주는 언어입니다.
+JavaScript는 HTML과 CSS로 만들어진 웹페이지를 동적으로 변경해주는 언어다.
 
+
+<div id="9"></div>
 
 ## ES6 + Syntax
 
-### var, let, const
+### Var, Let, Const
 
 **Variable**
 
