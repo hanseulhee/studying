@@ -1,9 +1,16 @@
 # Books
 
 - Clean Code (클린코드) - 로버트.C.마틴
-~2022.02.18~ ~ ~2022.04.08~
+
+
+2022.02.18 ~ 2022.03.11
+
 
 #### 1. 깨끗한 코드
+
+
+[TIL (Today I Learned)](https://velog.io/@seulhyi/Clean-Code-%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C-1%EC%9E%A5)
+
 
 
 #### 2. 의미 있는 이름
