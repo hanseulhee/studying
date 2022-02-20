@@ -15,6 +15,8 @@
 
 #### 2. 의미 있는 이름
 
+[TIL (Today I Learned)](https://velog.io/@seulhyi/Clean-Code-%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C-2%EC%9E%A5)
+
 
 #### 3. 함수
 
