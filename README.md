@@ -2,6 +2,11 @@
 
 - Books
   - [You don’t know JS](./Books/Youdon’tknowJS/README.md)
+
+- School
+  - [생활 속의 보안](./School/생활속의보안/README.md)
+  - [알고리즘](./School/알고리즘/README.md)
+  
 - [React Element](./ReactElement/README.md)
 - [Props](./Props/README.md)
 - [Prop Types](./Props/README.md/#2)
