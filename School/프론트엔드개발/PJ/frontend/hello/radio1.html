@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      div#app {
+        margin: 20px auto;
+        padding: 20px;
+        width: 300px;
+        border: 1px solid gray;
+        box-shadow: 5px 5px 5px #aaa;
+      }
+      p {
+        font-size: 15pt;
+        color: blue;
+      }
+      select {
+        padding: 5px;
+        font-size: 15pt;
+        width: 150px;
+        margin: 10px;
+      }
+      label {
+        font-size: 14pt;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>select</h1>
+      <p>{{ choice }}</p>
+      <hr />
+      <select v-model="choice">
+        <option>yellow</option>
+        <option>green</option>
+        <option>blue</option>
+        <option>red</option>
+      </select>
+      <div>
+        <label>
+          <input type="radio" value="yellow" v-model="choice" />yellow
+        </label>
+        <label>
+          <input type="radio" value="green" v-model="choice" />green
+        </label>
+        <label>
+          <input type="radio" value="blue" v-model="choice" />blue
+        </label>
+        <label> <input type="radio" value="red" v-model="choice" />red </label>
+      </div>
+    </div>
+    <script type="text/javascript">
+      let app = {
+        data() {
+          return { choice: "yellow" };
+        },
+      };
+      Vue.createApp(app).mount("#app");
+    </script>
+  </body>
+</html>

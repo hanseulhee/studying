@@ -1,0 +1,51 @@
+1) checkbox3.html
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      div#app {
+        margin: 20px auto;
+        padding: 20px;
+        width: 300px;
+        border: 1px solid gray;
+        box-shadow: 5px 5px 5px #aaa;
+      }
+      p {
+        font-size: 15pt;
+        color: blue;
+      }
+      input {
+        width: 30px;
+        height: 30px;
+      }
+      div#hello {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: lightGreen;
+        border: 1px solid gray;
+        text-align: center;
+        font-size: 20pt;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>radio</h1>
+      <p>{{ visible }}</p>
+      <hr />
+      <label> <input type="radio" value="true" v-model="visible" /></label>
+      <label> <input type="radio" value="false" v-model="visible" /></label>
+    <div id="hello" v-if="visible">Hi</div>
+    </div>
+    <script type="text/javascript">
+      let app = {
+        data() {
+          return { visible: false };
+        },
+      };
+      Vue.createApp(app).mount("#app");
+    </script>
+  </body>
+</html>

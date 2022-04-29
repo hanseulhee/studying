@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      div#app {
+        margin: 20px auto;
+        padding: 20px;
+        width: 300px;
+        border: 1px solid gray;
+        box-shadow: 5px 5px 5px #aaa;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>입력 양식</h1>
+      <input type="text" placeholder="이름을 입력하세요" v-model="name" />
+      <div>
+        <label>
+          <input type="radio" value="남자" v-model="gender" /> 남자
+        </label>
+        <label>
+          <input type="radio" value="여자" v-model="gender" /> 여자
+        </label>
+      </div>
+      <select v-model="major">
+        <option value="" selected disabled hidden>전공을 선택하세요</option>
+        <option value="소프">소프트웨어공학</option>
+        <option value="컴공">컴퓨터공학</option>
+        <option value="정통">정보통신</option>
+      </select>
+      <p></p>
+      <label>
+      <input type="checkbox" v-model="value" />활성화
+    </label>
+      <hr />
+      <p>이름: {{name}}</p>
+      <p>성별: {{gender}}</p>
+      <p>전공: {{major}}</p>
+      활성화: {{value}}
+    </div>
+    <script type="text/javascript">
+      let app = {
+        data() {
+          return { value: false, name: "", gender: "", major: "" };
+        },
+      };
+      Vue.createApp(app).mount("#app");
+    </script>
+  </body>
+</html>
