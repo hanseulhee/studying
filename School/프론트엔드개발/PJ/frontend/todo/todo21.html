@@ -1,0 +1,64 @@
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" type="text/css" href="todo2.css" />
+  </head>
+  <body>
+    <div id="app">
+      <h1>할 일</h1>
+      <table>
+        <tr>
+          <td class="checkbox"></td>
+          <td class="description">내용</td>
+          <td class="date">날짜</td>
+        </tr>
+        <tr v-for="todo in todoList">
+          <td><input type="checkbox" v-model="todo.checked" /></td>
+          <td>{{ todo.description }}</td>
+          <td>{{ todo.due_date }}</td>
+        </tr>
+      </table>
+      <input
+        type="text"
+        v-model.trim="todo.description"
+        placeholder="내용을 입력하세요"
+      />
+      <input type="date" v-model="todo.due_date" />
+      <button type="button" v-on:click="addTodo" :disabled="!todo.description">
+        할일 추가
+      </button>
+      <button type="button" v-on:click="deleteTodo" :disabled="checkedCount==0">
+        삭제
+      </button>
+    </div>
+    <script type="text/javascript">
+      let app = {
+        data() {
+          return { todoList: [], todo: {} };
+        },
+        computed: {
+          checkedCount: function () {
+            let count = 0;
+            for (let i = 0; i < this.todoList.length; ++i)
+              if (this.todoList[i].checked) ++count;
+            return count;
+          },
+        },
+        methods: {
+          addTodo: function () {
+            this.todoList.push(this.todo);
+            this.todo = {};
+          },
+          deleteTodo: function () {
+            let list = [];
+            for (let i = 0; i < this.todoList.length; ++i)
+              if (!this.todoList[i].checked) list.push(this.todoList[i]);
+            this.todoList = list;
+          },
+        },
+      };
+      Vue.createApp(app).mount("#app");
+    </script>
+  </body>
+</html>

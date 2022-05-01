@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      div#box {
+        margin: 20px auto;
+        padding: 20px;
+        width: 300px;
+        border: 1px solid gray;
+        box-shadow: 5px 5px 5px #aaa;
+      }
+      p {
+        font-size: 15pt;
+        color: blue;
+      }
+      input {
+        width: 30px;
+        height: 30px;
+      }
+      .green {
+        background-color: #afa;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div id="box" v-bind:class="{ green: value }">
+        <h1>checkbox</h1>
+        <p>{{ value }}</p>
+        <hr />
+        <input type="checkbox" v-model="value" />
+      </div>
+    </div>
+    <script type="text/javascript">
+      let app = {
+        data() {
+          return { value: false };
+        },
+      };
+      Vue.createApp(app).mount("#app");
+    </script>
+  </body>
+</html>

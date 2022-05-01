@@ -14,6 +14,8 @@
 
 [modifier.docx](#6)
 
+[todo 앱](#7)
+
 <div id = "1">
 
 ### Vue.js
@@ -285,18 +287,13 @@ v-bind:value="true"
 
 이 버튼이 클릭되면 hide 메소드가 호출된다.
 
-
 v-on:click="show"
 
 @click="show"
 
 v-on: 대신 @ 문자를 사용해도 된다.
 
-
 EX) [button1.html](../%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%EA%B0%9C%EB%B0%9C/PJ/frontend/hello/button1.html)
-
-
-
 
 <button type="button" v-on:click="hide" v-show="visible">감추기</button>
 
@@ -308,14 +305,11 @@ EX) [button1.html](../%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%EA%B0%9C%EB%
 
 느낌표 문자는 javascript의 not 연산자이다.
 
-
 보이지 않는 상태에서 감추기 버튼은 불필요하고, 보이는 상태에서 보이기 버튼은 불필요하다.
 
 불필요한 버튼이 화면에 보이지 않는 것이 좋다.
 
-
 EX) [button2.html](../%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%EA%B0%9C%EB%B0%9C/PJ/frontend/hello/button2.html)
-
 
 ### v-bind:disabled
 
@@ -332,7 +326,6 @@ disabled 는 표준 HTML 애트리뷰트이다.
 표준 HTML 애트리뷰트 앞에 v-bind: 접두어를 붙여야, 그 값이 javascript 표현식으로 인식된다.
 
 v-bind: 접두어를 붙이지 않으면, 그 값은 평범한 문자열로 인식된다.
-
 
 ### 요약
 
@@ -360,54 +353,32 @@ role 속성 값이 'admin' 문자열 일 때만 이 태그가 생성된다.
 
 v-bind:애트리뷰트="값"
 
-HTML 애트리뷰트의 값은 문자열로 해석된다.
-
-그런데, HTML 애트리뷰트 앞에 v-bind: 접두어를 붙이면, 그 값은 javascript 표현식으로 해석된다.
+HTML 애트리뷰트의 값은 문자열로 해석된다. 그런데, HTML 애트리뷰트 앞에 v-bind: 접두어를 붙이면, 그 값은 javascript 표현식으로 해석된다.
 
 v-bind: 대신 : 만 붙여도 된다.
 
-value="3"
 
-value 값은 "3" 문자열이다.
+value="3" value 값은 "3" 문자열이다.
 
-v-bind:value="3"
+v-bind:value="3" value 값은 숫자 3 이다.
 
-value 값은 숫자 3 이다.
+:value="3" value 값은 숫자 3 이다.
 
-:value="3"
+value="3 + 2" value 값은 "3 + 2" 문자열이다.
 
-value 값은 숫자 3 이다.
+v-bind:value="3 + 2" value 값은 숫자 5 이다.
 
-value="3 + 2"
+value="title" value 값은 "title" 문자열이다.
 
-value 값은 "3 + 2" 문자열이다.
+v-bind:value="title" value 값은 title 속성의 값 이다.
 
-v-bind:value="3 + 2"
+disabled="visible" disabled 값은 "visible" 문자열이다.
 
-value 값은 숫자 5 이다.
-
-value="title"
-
-value 값은 "title" 문자열이다.
-
-v-bind:value="title"
-
-value 값은 title 속성의 값 이다.
-
-disabled="visible"
-
-disabled 값은 "visible" 문자열이다.
-
-v-bind:disabled="visible"
-
-disabled 값은 visible 속성의 값 이다.
-
+v-bind:disabled="visible" disabled 값은 visible 속성의 값 이다.
 
 v-bind:disabled="조건식"
 
-조건식의 값이 true 이면, 이 태그는 비활성화된 상태가 되고,
-
-false 이면, 이 태그는 활성화된 상태가 된다.
+조건식의 값이 true 이면, 이 태그는 비활성화된 상태가 되고, false 이면, 이 태그는 활성화된 상태가 된다.
 
 메소드 정의
 
@@ -437,7 +408,187 @@ v-on:click="메소드이름(파라미터값)"
 
 v-on:click="메소드이름" 대신 @click="메소드이름" 해도 된다.
 
-
-
 [연습문제](../%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%EA%B0%9C%EB%B0%9C/PJ/frontend/hello/empty1.html)
+
+<div id = "3">
+
+### CSS 클래스
+
+v-bind:class="{ green: value }"
+
+value 속성값이 true 이면, 위 소스코드의 실행 결과는 다음과 같다.
+
+class="green"
+
+즉 green CSS 클래스 서식이 적용된다.
+
+value 속성값이 false 이면, 위 소스코드의 실행 결과는 다음과 같다.
+
+class=""
+
+즉 CSS 클래스 서식이 적용되지 않는다.
+
+class 속성에 v-bind: 접두어가 붙었으므로, { green: value } 부분은 javascript 객체이다.
+
+속성명 green 부분은 CSS 클래스 이름이어야 한다.
+
+속성값은 true/false 조건식이어야 한다.
+
+EX) [checkbox5.html](../%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%EA%B0%9C%EB%B0%9C/PJ/frontend/hello/checkbox5.html)
+
+v-bind:class="{ green: value == true, red: value == false }"
+
+value == true 조건식이 true 이면, 위 소스코드의 실행 결과는 다음과 같다.
+
+class="green"
+
+즉 green CSS 클래스 서식이 적용된다.
+
+value == false 조건식이 true 이면, 위 소스코드의 실행 결과는 다음과 같다.
+
+class="red"
+
+즉 red CSS 클래스 서식이 적용된다.
+
+EX) [checkbox6.html](../%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%EA%B0%9C%EB%B0%9C/PJ/frontend/hello/checkbox6.html)
+
+v-bind:class="color"
+
+color 속성의 값은 문자열이다.
+
+이 값은 CSS 클래스 이름과 일치해야 한다.
+
+color 속성의 값이 "red" 이면 위 소스코드의 실행 결과는 다음과 같다.
+
+class="red"
+
+EX) [select3.html](../%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%EA%B0%9C%EB%B0%9C/PJ/frontend/hello/select3.html)
+
+transition: background-color 1s, height 1s;
+
+background-color 서식의 값이 변경될 때, 1초 간격으로 천천히 변경된다.
+
+height 서식의 값이 변경될 때, 1초 간격으로 천천히 변경된다.
+
+v-bind:style="{ backgroundColor: color, height: h }"
+
+예를 들어 color 속성값이 "#ffa" 이고, h 속성값이 200 이면
+
+위 소스코드의 실행 결과는 다음과 같다.
+
+style="backgroundColor: #ffa; height: 200px;"
+
+EX) [select5.html](../%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%EA%B0%9C%EB%B0%9C/PJ/frontend/hello/select5.html)
+
+### 계산 결과 출력
+
+```html
+<div class="total">{{ quantity * price }}</div>
+```
+
+quantity 속성값과 price 속성값이 곱셈값이 출력된다.
+
+두 속성 중에 하나가 변경되면, 곱셈값도 다시 계산되어 출력된다.
+
+```html
+<div id="app">
+  <h1>주문</h1>
+  <div><label>수량</label> <input type="text" v-model="quantity" /></div>
+  <div><label>가격</label> <input type="text" v-model="price" /></div>
+  <hr />
+  <div class="total">{{ total() }}</div>
+</div>
+<script type="text/javascript">
+  let app = {
+    data() {
+      return { quantity: 1, price: 0 };
+    },
+    methods: {
+      total() {
+        return this.quantity * this.price;
+      },
+    },
+  };
+  Vue.createApp(app).mount("#app");
+</script>
+```
+
+{{ total() }}
+
+total() 메소드의 리턴값이 출력된다.
+
+두 속성 중에 하나가 변경되면, 메소드가 다시 호출되어 그 리턴값이 출력된다.
+
+계산식이 복잡하다면, 위와 같이 메소드의 형태로 구현하는 것이 바람직하다.
+
+### 계산 속성
+
+```html
+computed: { total() { return this.quantity * this.price; } }
+```
+
+```html
+computed: { total: function() { return this.quantity * this.price; } }
+```
+
+위의 코드의 구조와 아래의 코드와 동일하다.
+
+Vue 앱에 total 계산 속성을 정의한다. (computed property) 계산 속성이란, 구현 형태는 메소드인데, 사용법은 속성과 같은 것을 말한다.
+
+계산 값을 리턴하는 getter 메소드와, 값을 대입하는 setter 메소드로 계산 속성을 구현한다. getter 메소드만 구현하면, 읽기 전용 계산 속성이 된다. 위의 total 계산 속성은 getter 메소드만 구현했다.
+
+{{ total }}
+
+total 계산 속성의 값이 출력된다.
+
+### 메소드 vs 계산 속성
+
+메소드의 리턴값을 출력하는 형태로 구현하면, 화면을 다시 그릴 때 마다 메소드가 다시 호출된다.
+
+계산 속성의 값을 출력하는 형태로 구현하면, getter 메소드의 리턴값이 캐시에 저장된 후 화면에 출력된다.
+
+그리고 다시 화면을 그려야 할 때, 계산 속성의 값을 다시 계산할 필요가 없다면, 캐시에 저장된 값을 사용하여 화면을 그린다.
+
+따라서 계산식의 값을 화면에 출력해야 하는 경우에, 그 계산식을 메소드로 구현하는 것보다, 계산 속성으로 구현하는 것이 바람직하다.
+
+물론 계산식이 매우 간단하다면, {{ quantity * price }} 형태로 구현하는 것도 좋다.
+
+EX) [compute3.html](../%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%EA%B0%9C%EB%B0%9C/PJ/frontend/hello/compute3.html)
+
+### getter / setter 구현
+
+```html
+total : { get() { return this.quantity * this.price; }, set(value) {
+this.quantity = value / this.price; } }
+```
+
+```html
+total : { get: function() { return this.quantity * this.price; }, set:
+function(value) { this.quantity = value / this.price; } }
+```
+위의 코드의 구조와 아래의 코드와 동일하다.
+
+total 계산 속성에 getter 메소드 뿐만 아니라, setter 메소드도 구현하였다. 따라서 total 계산 속성의 값을 읽을 수 있을 뿐만 아니라, 이 속성에 값을 대입할 수도 있다.
+
+```html
+<input type="text" v-model="total" />
+```
+
+이 input 태그에 값을 입력하면 total 계산 속성에 그 값이 실시간으로 대입된다. 즉, total 계산 속성의 setter 메소드가 즉시 호출된다. set 메소드의 파라미터 값은, 계산 속성에 대입되는 값이다.
+
+
+### 요약
+
+
+[practice.html](../%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%EA%B0%9C%EB%B0%9C/PJ/frontend/hello/practice.html)
+
+[practice1.html](../%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%EA%B0%9C%EB%B0%9C/PJ/frontend/hello/practice1.html)
+
+[practice2.html](../%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%EA%B0%9C%EB%B0%9C/PJ/frontend/hello/practice2.html)
+
+
+
+<div id = "7">
+
+### todo 앱
 

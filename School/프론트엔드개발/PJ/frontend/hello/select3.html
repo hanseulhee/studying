@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      div#box {
+        margin: 20px auto;
+        padding: 20px;
+        width: 300px;
+        border: 1px solid gray;
+        box-shadow: 5px 5px 5px #aaa;
+      }
+      select {
+        padding: 5px;
+        font-size: 15pt;
+        width: 150px;
+        margin: 10px;
+      }
+      .yellow {
+        background-color: #ffa;
+      }
+      .green {
+        background-color: #bfb;
+      }
+      .blue {
+        background-color: #bbf;
+      }
+      .red {
+        background-color: #fbb;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div id="box" v-bind:class="color">
+        <h1>select</h1>
+        <select v-model="color">
+          <option>yellow</option>
+          <option>green</option>
+          <option>blue</option>
+          <option>red</option>
+        </select>
+      </div>
+    </div>
+    <script type="text/javascript">
+      let app = {
+        data() {
+          return { color: "yellow" };
+        },
+      };
+      Vue.createApp(app).mount("#app");
+    </script>
+  </body>
+</html>

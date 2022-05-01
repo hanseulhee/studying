@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" type="text/css" href="todo1.css" />
+  </head>
+  <body>
+    <div id="app">
+      <h1>할 일</h1>
+      <ul>
+        <li v-for="(todo, index) in todoList">
+          <input type="checkbox" v-model="checked[index]" /> {{ todo }}
+        </li>
+      </ul>
+      <input type="text" v-model="todo" />
+      <button type="button" v-on:click="addTodo">할일 추가</button>
+      <button type="button" v-on:click="deleteTodo">삭제</button>
+    </div>
+    <script type="text/javascript">
+      let app = {
+        data() {
+          return {
+            todoList: ["과제", "시험공부", "코딩훈련"],
+            checked: [],
+            todo: "",
+          };
+        },
+        methods: {
+          addTodo: function () {
+            this.todoList.push(this.todo);
+          },
+          deleteTodo: function () {
+            let list = [];
+            for (let i = 0; i < this.todoList.length; ++i)
+              if (!this.checked[i]) list.push(this.todoList[i]);
+            this.todoList = list;
+            this.checked = [];
+          },
+        },
+      };
+      Vue.createApp(app).mount("#app");
+    </script>
+  </body>
+</html>

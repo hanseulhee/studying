@@ -1,0 +1,58 @@
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      div#app {
+        padding: 30px;
+        margin: 30px auto;
+        width: 500px;
+        border: 1px solid #ccc;
+        box-shadow: 3px 3px 3px #aaa;
+      }
+      table {
+        border-collapse: collapse;
+        width: 400px;
+      }
+      td {
+        padding: 5px;
+        border: 1px solid #aaa;
+        text-align: center;
+      }
+      tr:nth-child(1) {
+        background-color: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <table>
+        <tr>
+          <td>ID</td>
+          <td>이름</td>
+          <td>나이</td>
+        </tr>
+        <tr v-for="person in persons" v-bind:key="person.id">
+          <td>{{ person.id }}</td>
+          <td>{{ person.name }}</td>
+          <td>{{ person.age }}</td>
+        </tr>
+      </table>
+    </div>
+    <script type="text/javascript">
+      let app = {
+        data() {
+          return {
+            persons: [
+              { id: 101, name: "홍길동", age: 16 },
+              { id: 102, name: "임꺽정", age: 18 },
+              { id: 103, name: "장길산", age: 19 },
+              { id: 104, name: "이몽룡", age: 17 },
+            ],
+          };
+        },
+      };
+      Vue.createApp(app).mount("#app");
+    </script>
+  </body>
+</html>

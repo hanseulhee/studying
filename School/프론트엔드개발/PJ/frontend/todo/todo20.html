@@ -1,0 +1,49 @@
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" type="text/css" href="todo2.css" />
+  </head>
+  <body>
+    <div id="app">
+      <h1>할 일</h1>
+      <table>
+        <tr>
+          <td class="description">내용</td>
+          <td class="date">날짜</td>
+        </tr>
+        <tr v-for="todo in todoList">
+          <td class="description">{{ todo.description }}</td>
+          <td class="date">{{ todo.due_date }}</td>
+        </tr>
+      </table>
+      <input
+        type="text"
+        v-model.trim="todo.description"
+        placeholder="내용을 입력하세요"
+      />
+      <input type="date" v-model="todo.due_date" />
+      <button
+        type="button"
+        v-on:click="addTodo"
+        v-bind:disabled="!todo.description"
+      >
+        할일 추가
+      </button>
+    </div>
+    <script type="text/javascript">
+      let app = {
+        data() {
+          return { todoList: [], todo: {} };
+        },
+        methods: {
+          addTodo: function () {
+            this.todoList.push(this.todo);
+            this.todo = {};
+          },
+        },
+      };
+      Vue.createApp(app).mount("#app");
+    </script>
+  </body>
+</html>

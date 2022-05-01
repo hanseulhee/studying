@@ -1,0 +1,43 @@
+h1 {
+  border-bottom: 1px solid gray;
+}
+div {
+  padding: 30px;
+  margin: 30px auto;
+  width: 600px;
+  border: 1px solid #ccc;
+  box-shadow: 3px 3px 3px #aaa;
+}
+li {
+  margin-bottom: 10px;
+}
+input[type="text"],
+input[type="date"] {
+  height: 2.4em;
+  padding: 4px;
+  margin-right: 5px;
+}
+button {
+  padding: 0.4em 1.5em;
+  margin-right: 5px;
+}
+table {
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+tr:nth-child(1) {
+  background-color: #ddd;
+}
+td {
+  padding: 5px;
+  border: 1px solid #aaa;
+}
+td.checkbox {
+  width: 50px;
+}
+td.description {
+  width: 300px;
+}
+td.date {
+  width: 100px;
+}

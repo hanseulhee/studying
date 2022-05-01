@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      h1 {
+        border-bottom: 1px solid gray;
+      }
+      div {
+        padding: 30px;
+        margin: 30px auto;
+        width: 600px;
+        border: 1px solid #ccc;
+        box-shadow: 3px 3px 3px #aaa;
+      }
+      li {
+        margin-bottom: 10px;
+      }
+      input[type="text"] {
+        padding: 5px;
+        margin-right: 5px;
+      }
+      button {
+        padding: 0.3em 1.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>할 일</h1>
+      <ul>
+        <li v-for="todo in todoList">{{ todo }}</li>
+      </ul>
+      <input type="text" v-model="todo" />
+      <button type="button" v-on:click="addTodo">할일 추가</button>
+    </div>
+    <script type="text/javascript">
+      let app = {
+        data() {
+          return { todoList: ["과제", "시험공부", "코딩훈련"], todo: "" };
+        },
+        methods: {
+          addTodo: function () {
+            this.todoList.push(this.todo);
+          },
+        },
+      };
+      Vue.createApp(app).mount("#app");
+    </script>
+  </body>
+</html>

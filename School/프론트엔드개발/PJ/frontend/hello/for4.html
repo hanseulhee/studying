@@ -1,0 +1,49 @@
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      div#app {
+        padding: 30px;
+        margin: 30px auto;
+        max-width: 600px;
+        border: 1px solid #ccc;
+        box-shadow: 3px 3px 3px #aaa;
+      }
+      span {
+        display: inline-block;
+        margin: 0px 5px 15px 0px;
+        padding: 8px 15px;
+        border: 1px solid black;
+      }
+      span:hover {
+        cursor: pointer;
+        background-color: #ddd;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <span
+        v-for="(s, index) in words"
+        v-bind:key="s"
+        v-on:click="remove(index)"
+      >
+        {{ s }}
+      </span>
+    </div>
+    <script type="text/javascript">
+      let app = {
+        data() {
+          return { words: ["zero", "one", "two", "three", "four", "five"] };
+        },
+        methods: {
+          remove(index) {
+            this.words.splice(index, 1);
+          },
+        },
+      };
+      Vue.createApp(app).mount("#app");
+    </script>
+  </body>
+</html>

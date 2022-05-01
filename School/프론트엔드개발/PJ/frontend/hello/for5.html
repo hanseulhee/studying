@@ -1,0 +1,66 @@
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      div#app {
+        padding: 30px;
+        margin: 30px auto;
+        max-width: 600px;
+        border: 1px solid #ccc;
+        box-shadow: 3px 3px 3px #aaa;
+      }
+      span {
+        display: inline-block;
+        margin: 0px 5px 15px 0px;
+        padding: 8px 15px;
+        border: 1px solid black;
+      }
+      span:hover {
+        cursor: pointer;
+        background-color: #ddd;
+      }
+      input {
+        padding: 5px;
+        margin-right: 5px;
+      }
+      button {
+        padding: 0.3em 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <span
+        v-for="(s, index) in words"
+        v-bind:key="s"
+        v-on:click="remove(index)"
+      >
+        {{ s }}
+      </span>
+      <div>
+        <input type="text" v-model="word" />
+        <button type="button" v-on:click="add">추가</button>
+      </div>
+    </div>
+    <script type="text/javascript">
+      let app = {
+        data() {
+          return {
+            words: ["zero", "one", "two", "three", "four", "five"],
+            word: "",
+          };
+        },
+        methods: {
+          remove(index) {
+            this.words.splice(index, 1);
+          },
+          add() {
+            this.words.push(this.word);
+          },
+        },
+      };
+      Vue.createApp(app).mount("#app");
+    </script>
+  </body>
+</html>
