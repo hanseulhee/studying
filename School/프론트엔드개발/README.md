@@ -585,10 +585,3 @@ total 계산 속성에 getter 메소드 뿐만 아니라, setter 메소드도 �
 [practice1.html](../%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%EA%B0%9C%EB%B0%9C/PJ/frontend/hello/practice1.html)
 
 [practice2.html](../%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%EA%B0%9C%EB%B0%9C/PJ/frontend/hello/practice2.html)
-
-
-
-<div id = "7">
-
-### todo 앱
-

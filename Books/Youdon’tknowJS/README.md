@@ -82,8 +82,3 @@ typeof b; // "undefined"
 
 
 <b>typeof</b>의 안전가드를 선언되지 않은 변수에 사용할 수 있다.
-
-
-
-- 2장
-
