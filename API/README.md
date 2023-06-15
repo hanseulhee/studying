@@ -11,6 +11,8 @@ $ npm install axios
 **API**
 [JSONPlaceholder](https://jsonplaceholder.typicode.com/users)
 
+<div id="1"></div>
+
 ### axios
 
 POST(데이터 등록) GET(데이터 조회) PUT(데이터 수정) DELETE(데이터 삭제)등의 메서드를 이용하여 데이터 관리한다.
@@ -36,6 +38,8 @@ axios.post("/users", {
 });
 ```
 
+
+
 ### try...catch
 
 [try...catch](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/try...catch)는 예외를 처리하기 위한 구문이다.
@@ -59,13 +63,8 @@ const fetchUsers = async () => {
 
 try 안은 실행될 선언들이고 catch 안은 try 블록에서 예외가 발생하였을 때 실행될 선언들이다.
 
-
 ### API 재요청
 
 fetchUsers 함수를 바깥으로 꺼내 버튼을 만들어 해당 함수를 연결해준다.
 
-
 ### useAsync Custom Hook
-
-
-
