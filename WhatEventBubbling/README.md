@@ -216,3 +216,24 @@ TCP는 전송 제어 프로토콜 (Transmission Control Protocol)로 한 기기�
 같은 결과를 목표로 하기 때문에 한 명칭으로 알려지기도 한다.
 
 ---
+
+# 이것 저것
+
+## Numeric separators
+
+[Numeric separators](https://v8.dev/features/numeric-separators)는 ES12(ES2021)에 추가된 최신 문법으로 숫자 단위를 간편하게 구분해주는 문법이다.
+
+```js
+const BIGNUMBER = 1234567890; // 엄청 큰 숫자
+const SEPARATION_BIGNUMBER = 1_234_567_890; // 언더바로 구분
+```
+
+## 변수 VS 상수
+
+변수는 값 변경이 가능한 값이다.
+
+상수는 값이 변하지 않는 고정된 값이다.
+
+변수를 저장할 때는 var과 let을 사용하고 변하지 않는 상수 값을 저장할 때는 const를 사용한다.
+
+절대적인 것은 아니지만 상수를 코드에서 찾기 쉽게 하기위해 constants들은 대문자와 언더바를 이용해 네이밍한다.
