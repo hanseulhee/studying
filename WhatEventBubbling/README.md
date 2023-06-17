@@ -2,7 +2,63 @@
 
 뭐야 ? 뭐야 ? 이건 뭐야 ?
 
-## CSR / SSR
+<img src="https://velog.velcdn.com/images/yejine2/post/b03fd089-9b7d-49d8-a408-55c3c543d838/image.png" width="80%" />
+
+### SPA
+
+싱글 페이지 어플리케이션(Single Page Application)은 말 그대로 하나의 페이지로 구성된 웹 어플리케이션이다.
+
+SPA가 등장하기 전 웹 어플리케이션은 여러 페이지([MPA](#mpa))로 구성되었다. 그러나 시간이 흐르면서 웹은 더 많은 정보를 제공하게 되었고 모바일 기기를 통한 웹 어플리케이션 접속도 증가하였다.
+
+MPA의 속도 저하를 처음 접근 시 웹 어플리케이션에 필요한 모든 정적 리소스를 단 한번만 다운로드하고 이후 필요한 데이터만 변경하여 사용할 수 있는 SPA로 해결하고자 하였다.
+
+### SPA의 장단점
+
+**장점**
+
+화면 구성에 필요한 모든 HTML은 클라이언트가 가지고 있고 필요한 데이터만 서버에 요청해서 받기 때문에 새로고침을 할 필요도 없고 화면을 구성하는 속도가 빠르다.
+
+페이지를 이동 하더라도 필요한 부분 (컴포넌트)만 부분적으로 교체하면 되므로 효율성이 증가한다.
+
+서버가 해야 할 화면 구성을 클라이언트가 수행하므로 서버 부담이 경감된다.
+
+사용자의 요청에 빠르게 반응한다.
+
+**단점**
+
+- 초기 구동 속도가 느리다.
+
+최초 접근 시 필요한 정적 리소스를 한번에 다운로드 하기 때문에 초기 구동 속도가 상대적으로 느리다.
+
+- SEO에 취약하다.
+
+검색 엔진이 크롤링할 때 JavaScript를 실행하지 않고 어플리케이션이 로드되기 전의 빈 상태의 코드를 크롤링하기 때문에 인덱싱이 제대로 이루어지지 않는다.
+
+(구글 검색 엔진은 괜찮을 수 있으나 국내 검색 엔진은 제대로 이루어지지 않는다.)
+
+### MPA
+
+멀티 페이지 어플리케이션(Multiple Page Application)은 말그대로 여러개의 페이지로 이루어진 어플리케이션이다.
+
+MPA는 전통적인 웹 애플리케이션 개발 방식으로 웹 브라우저에서 특정 페이지에 대한 요청을 서버에 보내면 서버는 데이터를 HTML 문서로 웹 브라우저에 응답해준다. 이 때 전체 페이지가 다시 불러와지게 된다.
+
+### MPA의 장단점
+
+**장점**
+
+- SEO에 친화적이다.
+
+MPA를 사용하여 여러 페이지를 생성할 수 있기 때문에 훨씬 더 많은 수의 키워드를 타겟팅할 수 있다.
+
+**단점**
+
+- 불필요한 로딩이 발생한다.
+
+페이지가 바뀔 때마다 매번 완전한 페이지를 응답받기 때문에 페이지 이동 시 불필요한 로딩이 발생한다.
+
+- 화면이 깜빡인다.
+
+다른 페이지로 넘어가거나 새로고침 시 화면이 깜빡인다. 이것은 사용자 경험에 안좋은 영향을 미친다.
 
 ### 렌더링
 
@@ -16,13 +72,13 @@ CSR(Client-side Rendering), SSR(Server-side Rendering)에 공통적으로 **Rend
 
 1. [DOM](#dom) 트리 생성
 
-<img src="https://blog.kakaocdn.net/dn/Tznkz/btq3UsUBn0K/JZP3rvN97XgT9Qq0fPSil0/img.png" />
+<img src="https://blog.kakaocdn.net/dn/Tznkz/btq3UsUBn0K/JZP3rvN97XgT9Qq0fPSil0/img.png" width="80%"/>
 
-<img src="https://velog.velcdn.com/images/tnehd1998/post/0cee5616-2c9a-4012-ac13-3cbe3e85d7f9/image.png" />
+<img src="https://velog.velcdn.com/images/tnehd1998/post/0cee5616-2c9a-4012-ac13-3cbe3e85d7f9/image.png" width="80%"/>
 
 브라우저가 **HTML의 원시 바이트**를 읽어와 HTML에 정의된 인코딩에 따라 개별 **문자**로 변환한다.
 
-<img src="https://velog.velcdn.com/images/tnehd1998/post/ef5f08e1-f991-442c-9bcb-45df60280a81/image.png" />
+<img src="https://velog.velcdn.com/images/tnehd1998/post/ef5f08e1-f991-442c-9bcb-45df60280a81/image.png" width="80%"/>
 
 브라우저가 **문자열**을 [W3C](#w3c) 표준에 지정된 **고유 토큰**으로 반환한다.
 
@@ -36,7 +92,7 @@ HTML 마크업에 정의된 여러 태그 간의 관계를 해석하여 트리 �
 
 3. Rendering Tree 생성
 
-<img src="https://velog.velcdn.com/images/zaman17/post/c676ccc7-e216-43c4-94a6-b31f6e2d128f/image.png" />
+<img src="https://velog.velcdn.com/images/zaman17/post/c676ccc7-e216-43c4-94a6-b31f6e2d128f/image.png" width="80%"/>
 
 DOM 트리와 CSSOM 트리가 만들어지면 둘을 결합해 렌더링 트리 (Rendering Tree)를 생성한다.
 
@@ -90,7 +146,7 @@ background, color, text-decoration, border-style, border-radius
 
 ### DOM
 
-<img src="https://media.geeksforgeeks.org/wp-content/uploads/20210908120846/DOM.png" />
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/20210908120846/DOM.png" width="80%"/>
 
 DOM이란 Document Object Model로 문서 객체 모델이다.
 DOM은 동일한 문서를 표현하고, 저장하고, 조작하는 방법을 제공한다.
@@ -129,7 +185,7 @@ WAS는 요청을 받아 동적인 파일 (JS, TS)을 처리하고 DB에서 필�
 
 status code를 통해 서버 요청에 따른 결과 및 상태를 전달한다.
 
-<img src="https://velog.velcdn.com/images/tnehd1998/post/c8ba71bf-8623-45ca-a3fb-50fc4c17872a/image.png" />
+<img src="https://velog.velcdn.com/images/tnehd1998/post/c8ba71bf-8623-45ca-a3fb-50fc4c17872a/image.png" width="80%"/>
 
 6. 위에서 작성한 웹 브라우저에 렌더링되는 과정
 
@@ -153,18 +209,10 @@ dom 트리 생성 cssom 트리 생성 후 둘을 결합하여 렌더링 트리�
 
 ### TCP/IP 프로토콜
 
-TCP/IP는 네트워크 프로토콜 스위트로, 온라인상의 안전하고 효율적인 데이터 전송의 필수 요건을 정의합니다.
+TCP/IP는 네트워크 프로토콜 스위트로, 온라인상의 안전하고 효율적인 데이터 전송의 필수 요건을 정의한다.
 
 TCP는 전송 제어 프로토콜 (Transmission Control Protocol)로 한 기기에서 다른 기기로 데이터를 전송하는 것을 담당하고, IP는 인터넷 프로토콜(Internet Protocol)로 데이터의 조각을 최대한 빨리 대상 IP 주소로 보내는 역할을 표시한다.
 
 같은 결과를 목표로 하기 때문에 한 명칭으로 알려지기도 한다.
-
-### CSR
-
-Client-side Rendering
-
-### SSR
-
-Server-side Rendering
 
 ---
