@@ -275,6 +275,36 @@ TCP는 전송 제어 프로토콜 (Transmission Control Protocol)로 한 기기�
 
 종류 - JavaScript, HTML, python 등
 
+## REST API로 받은 객체와 배열은 보통 어떤 자바스크립트 API나 로직을 이용해서 화면에 맞게 가공을 하는지?
+
+> map, filter, reduce
+
+### map
+
+map 은 배열 각 요소에 대해 주어진 함수를 수행한 결과를 모아 새로운 배열을 반환하는 매소드다.
+
+```jsx
+{
+  restaurants?.map((restaurant) => {
+    return <span key={restaurant.id}>{restaurant.name} </span>;
+  });
+}
+```
+
+### filter
+
+filter은 배열 각 요소에 대해 주어진 함수의 **결과값이 true**인 요소를 모아 새로운 배열로 반환하는 매소드다.
+
+```jsx
+const { slug } = params;
+const allPosts = getAllPosts(["title", "tags", "date", "slug"]);
+const currentPost = allPosts.filter((post) => post.slug === slug)[0];
+```
+
+### reduce
+
+reduce는 배열의 각 요소를 순회하며 callback 함수의 실행 값을 **누적하여 하나의 결과값**을 반환한다.
+
 ---
 
 # 이것 저것
@@ -297,3 +327,11 @@ const SEPARATION_BIGNUMBER = 1_234_567_890; // 언더바로 구분
 변수를 저장할 때는 var과 let을 사용하고 변하지 않는 상수 값을 저장할 때는 const를 사용한다.
 
 절대적인 것은 아니지만 상수를 코드에서 찾기 쉽게 하기위해 constants들은 대문자와 언더바를 이용해 네이밍한다.
+
+## Fragments VS <></>
+
+리액트는 하나의 컴포넌트만을 리턴할 수 있기 때문에 return 문 안에는 반드시 하나의 최상위 태그가 있어야 한다.
+
+<></> 가 Fragments 보다 나중에 나왔기 때문에
+
+Fragments를 쓰면 예전 리액트 지식으로 개발하는 사람처럼 보일 수도 있으니 <></>를 사용하자
