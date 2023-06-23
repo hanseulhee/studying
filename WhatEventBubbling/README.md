@@ -281,6 +281,14 @@ TCP는 전송 제어 프로토콜 (Transmission Control Protocol)로 한 기기�
 
 같은 결과를 목표로 하기 때문에 한 명칭으로 알려지기도 한다.
 
+## Critical Rendering Path
+
+Critical Rendering Path는 브라우저가 HTML, CSS 및 JavaScript를 화면의 픽셀로 변환하기 위해 거치는 일련의 단계이다.
+
+브라우저 렌더링 과정을 Critical Rendering Path (주요 렌더링 경로)라고 한다.
+
+Critical Rendering Path의 각 단계가 `최대한 효율적`으로 이루어지도록 만드는 것을 보통 `최적화`라고 부른다.
+
 ## TypeScript를 사용해야 하는 이유
 
 <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FJRGMw%2FbtrK8fLluqy%2FNiBibmjDMc5R7hbBmU5XL0%2Fimg.jpg" width="80%" />
