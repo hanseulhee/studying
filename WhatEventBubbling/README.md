@@ -289,6 +289,26 @@ Critical Rendering Path는 브라우저가 HTML, CSS 및 JavaScript를 화면의
 
 Critical Rendering Path의 각 단계가 `최대한 효율적`으로 이루어지도록 만드는 것을 보통 `최적화`라고 부른다.
 
+## 웹 캐시
+
+웹 캐시란 사용자가 웹 사이트에 접속할 때 정적 컨텐츠를 특정 위치에 저장시켜 저장한 곳에서 불러옴으로써 사이트의 응답시간을 줄이고 서버 트래픽 감소 효과를 볼 수 있다.
+
+웹 사이트 서버에 해당 컨텐츠를 매번 요청해 받는 것이 아니다.
+
+### 캐시 (Cache)
+
+캐시란 데이터에 빠르게 접근하기 위해 자주 사용되는 데이터나 값을 **미리 복사해 놓은 임시장소**를 의미한다.
+
+캐시에 데이터를 미리 복사해 놓으면 계산이나 접근 시간 없이 **더 빠른 속도**로 데이터에 접근할 수 있다.
+
+### 웹 캐시의 종류
+
+- 브라우저 캐시 (Browser Cashes)
+
+- 프록시 캐시 (Proxy Cashes)
+
+- 게이트웨이 캐시 (GateWay Cashes)
+
 ## TypeScript를 사용해야 하는 이유
 
 <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FJRGMw%2FbtrK8fLluqy%2FNiBibmjDMc5R7hbBmU5XL0%2Fimg.jpg" width="80%" />
