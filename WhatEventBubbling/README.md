@@ -333,31 +333,31 @@ Critical Rendering Path의 각 단계가 `최대한 효율적`으로 이루어�
 
 타켓이 되는 (가장 점유율이 높은) 브라우저부터 맞춰나가는 것이 좋다.
 
-  1. 벤더프리픽스 (Vender Prefix)
+1. 벤더프리픽스 (Vender Prefix)
 
-  css 속성 앞에 브라우저별 접두사를 붙인다.
+css 속성 앞에 브라우저별 접두사를 붙인다.
 
-  ```css
-  border-radius: 10px;
+```css
+border-radius: 10px;
 
-  -webkit-border-radius: 10px;
+-webkit-border-radius: 10px;
 
-  -moz-border-radius: 10px;
+-moz-border-radius: 10px;
 
-  -o-border-radius: 10px;
-  ```
+-o-border-radius: 10px;
+```
 
-  2. 초기화
+2. 초기화
 
-  ```css
-  all: unset;
-  ```
+```css
+all: unset;
+```
 
-  3. meta 태그
+3. meta 태그
 
-  ```html
-  <meta http-equryv="X-UA-Compatible" content="iE=edge" />
-  ```
+```html
+<meta http-equryv="X-UA-Compatible" content="iE=edge" />
+```
 
 - 대체 텍스트 제공
 
