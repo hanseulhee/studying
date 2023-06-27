@@ -309,6 +309,70 @@ Critical Rendering Path의 각 단계가 `최대한 효율적`으로 이루어�
 
 - 게이트웨이 캐시 (GateWay Cashes)
 
+## 웹 접근성
+
+웹 접근성을 고려한다는 것은 **모든 사람에게 접근할 수 있는 것을 의미한다.**
+
+- 크로스 브라우징이 가능하도록 한다.
+
+크로스 브라우징이란 웹 표준 기술을 적용하여 웹페이지가 서로 다른 운영체제나 플랫폼에서 이상없이 구현되도록 하는 기술을 말한다.
+(= 웹 페이의 상호 호환성)
+
+어느 한 플랫폼에 치우치지 않도록 공통 요소를 사용해 웹페이지를 제작해야한다. 지원할 수 없는 웹 브라우저를 위한 장치를 구현해 어떠한 웹 브라우저에서 사용자가 방문했을 때 정보로서의 소외감을 느끼지 않도록 하는 방법론적 가이드다.
+
+**동등**한 수준의 정보, 기능 접근에 초점을 맞춘다.
+
+크로스 브라우징을 하려면 **웹 표준**을 준수해야 한다.
+[statcounter](https://gs.statcounter.com/) 에 웹 사용 점유율을 확인할 수 있다.
+
+[모질라 mdn](https://developer.mozilla.org/ko/)에서 기능을 검색하고 브라우저 호환성을 확인할 수 있다.
+
+[Can i use](https://caniuse.com/)에서도 모질라와 동일하게 보여주지만 더 한눈에 보기 쉽다.
+
+[참고](http://www.mozilla.or.kr/docs/web-developer/standard/crossbrowsing.pdf)
+
+타켓이 되는 (가장 점유율이 높은) 브라우저부터 맞춰나가는 것이 좋다.
+
+  1. 벤더프리픽스 (Vender Prefix)
+
+  css 속성 앞에 브라우저별 접두사를 붙인다.
+
+  ```css
+  border-radius: 10px;
+
+  -webkit-border-radius: 10px;
+
+  -moz-border-radius: 10px;
+
+  -o-border-radius: 10px;
+  ```
+
+  2. 초기화
+
+  ```css
+  all: unset;
+  ```
+
+  3. meta 태그
+
+  ```html
+  <meta http-equryv="X-UA-Compatible" content="iE=edge" />
+  ```
+
+- 대체 텍스트 제공
+
+```html
+<img src="" alt="대체 설명" />
+```
+
+- input with label
+
+```html
+<label for="email">Email</label> <input type="email" id="email" />
+```
+
+등이 있으며 [wave](https://wave.webaim.org/)에서 사이트의 개선 사항들을 볼 수 있다.
+
 ## TypeScript를 사용해야 하는 이유
 
 <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FJRGMw%2FbtrK8fLluqy%2FNiBibmjDMc5R7hbBmU5XL0%2Fimg.jpg" width="80%" />
