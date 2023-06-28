@@ -337,6 +337,50 @@ Critical Rendering Path는 브라우저가 HTML, CSS 및 JavaScript를 화면의
 
 Critical Rendering Path의 각 단계가 `최대한 효율적`으로 이루어지도록 만드는 것을 보통 `최적화`라고 부른다.
 
+## script 태그를 body 태그 하단에 두는 이유는?
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="index.js"></script>
+  </head>
+  <body></body>
+</html>
+```
+
+하단이 아닌 위와 같이 script 태그를 두었다면
+
+해당 script 코드들을 불러오고 실행하느라 그 아래의 html 코드들이 로딩되지 못할 것이다.
+
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FXalRK%2FbtrCKWtQ2xO%2FYDqKZzXtJ9izah8rYEPQxK%2Fimg.png" width="80%" />
+
+이는 **브라우저 렌더링**에 방해가 된다.
+
+사용자는 긴 웹 로딩 시간을 기다려야 할 것이다.
+
+그러나 body 태그 하단에 두게 되면 html, css 가 모두 동작하고 불러오기 때문에 미완성된 화면이 오랫동안 지속되지 않는다.
+
+### async, defer
+
+만약 script 태그를 body 태그 하단에 위치하지 않을 경우 **async와 defer**을 이용해 DOM 생성을 중단하지 않고 script를 동시에 내려받게 할 수 있다.
+
+```html
+<script async src="index.js"></script>
+<script defer src="index.js"></script>
+```
+
+async 또는 defer 속성을 사용하면 공통적으로 HTML 파싱과 동시에 스크립트 로드가 이루어진다.
+
+<img src="https://blog.asamaru.net/res/img/post/2017/05/script-async-defer-2.png" width="80%" />
+
+async는 **비동기적**으로 HTML 파싱이 끝나지 않더라도 스크립트 로드가 완료되는 즉시 스크립트가 실행된다. (실행 순서가 중요하지 않은 경우에 사용)
+
+<img src="https://blog.asamaru.net/res/img/post/2017/05/script-async-defer-3.png" width="80%" />
+
+defer는 HTML 파싱이 **모두 끝난 뒤** 스크립트가 실행된다. (실행 순서가 중요한 경우에 사용)
+
 ## 웹 캐시
 
 웹 캐시란 사용자가 웹 사이트에 접속할 때 정적 컨텐츠를 특정 위치에 저장시켜 저장한 곳에서 불러옴으로써 사이트의 응답시간을 줄이고 서버 트래픽 감소 효과를 볼 수 있다.
