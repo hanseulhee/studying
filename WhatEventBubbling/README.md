@@ -273,13 +273,61 @@ dom 트리 생성 cssom 트리 생성 후 둘을 결합하여 렌더링 트리�
 
 이렇게해서 www.googlem.com 화면이 웹 브라우저에 출력된다.
 
-### TCP/IP 프로토콜
+## TCP/IP 프로토콜
 
 TCP/IP는 네트워크 프로토콜 스위트로, 온라인상의 안전하고 효율적인 데이터 전송의 필수 요건을 정의한다.
 
 TCP는 전송 제어 프로토콜 (Transmission Control Protocol)로 한 기기에서 다른 기기로 데이터를 전송하는 것을 담당하고, IP는 인터넷 프로토콜(Internet Protocol)로 데이터의 조각을 최대한 빨리 대상 IP 주소로 보내는 역할을 표시한다.
 
 같은 결과를 목표로 하기 때문에 한 명칭으로 알려지기도 한다.
+
+### TCP
+
+TCP는 Transmission Control Protocol의 약자로 Server와 Client 간에 데이터를 신뢰성 있게 전달하기 위해 만들어진 프로토콜이다.
+
+애플리케이션에게 신뢰적이고 연결지향성 서비스를 제공한다.
+
+TCP는 연결형 서비스로, **신뢰적인 전송을 보장**하기에 hanshaking하고 데이터의 흐름제어와 혼잡제어를 수행한다.
+
+TCP는 3-way handshaking과정을 통해 연결을 설정하고 4-way handshaking을 통해 해제한다.
+
+## TCP/IP 3-way handshake
+
+TCP/IP 프로토콜을 이용해 통신을 하는 응용프로그램이 데이터를 전송하기 전 **정확한 전송을 보장하기위해 상대방 컴퓨터와 사전에 세션을 수립하는 과정**을 의미한다.
+
+즉 데이터를 **전송하기 위해 네트워크 연결을 설정**하는 과정이다.
+
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcolneJ%2FbtrEE0Ggbwx%2FVzhD9eByIMPCRSn6QSGGy1%2Fimg.png" width="80%" />
+
+일반적으로 생각하는 Client와 Server는 연결 요청을 서로 먼저 할 수 있기 때문에 여기서는 **연결 요청을 먼저 시도한 요청자를 Client** , **연결 요청을 받은 수신자를 Server**라 생각하면 된다.
+
+### 과정
+
+1. Client가 Server에게 접속을 요청하는 SYN 플래그를 보낸다.
+
+2. Server는 Listen상태에서 SYN이 들어온 것을 확인하고 SYN_RECV상태로 바뀌어 SYN와 ACK 플래그를 Client에게 전송한다. 그 후 Server는 다시 ACK 플래그를 받기 위해 대기상태로 변경된다.
+
+3. SYN + ACK 상태를 확인한 Client는 서버에게 ACK를 보내고 연결 성립(Established)이 된다.
+
+3번의 handshake 과정을 거치기 때문에 3-way handshake 이다.
+
+## TCP/IP 4-way handshake
+
+4-way handshake는 **연결을 해제하기 위해 수행되는 절차**를 말한다.
+
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FqUXSw%2FbtqDWsFNWJw%2FhVdKIneSYb7UK3wc0pj6Z0%2Fimg.png" width="80%" />
+
+### 과정
+
+1. Client가 연결을 종료하겠다는 FIN 플래그를 전송한다. 보낸 후에 FIN-WAIT-1 상태로 변한다.
+
+2. FIN 플래그를 받은 Server는 확인메세지인 ACK를 Client에게 보내준다. 그 후 CLOSE-WAIT상태로 변한다. Client도 마찬가지로 Server에서 종료될 준비가 됐다는 FIN을 받기 위해 FIN-WAIT-2 상태가 된다.
+
+3. Close 준비가 다 된 후 Server는 Client에게 FIN 플래그를 전송한다.
+
+4. Client는 해지 준비가 되었다는 정상 응답인 ACK를 Server에게 보내준다. 이 때, Client는 TIME-WAIT 상태로 변경된다.
+
+Server는 ACK 를 받은 이후 소켓을 닫고 TIME-WAIT 시간이 끝나면 Client도 닫는다.
 
 ## Critical Rendering Path
 
