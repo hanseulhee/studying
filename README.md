@@ -11,6 +11,7 @@
   - [script 태그를 <body> 하단에 두는 이유는?](./WhatEventBubbling/README.md/#script-태그를-body-태그-하단에-두는-이유는)
   - [웹 캐시](./WhatEventBubbling/README.md/#웹-캐시)
   - [웹 접근성](./WhatEventBubbling/README.md/#웹-접근성)
+  - [TypeScript](./TypeScript/README.md)
   - [TypeScript를 사용해야 하는 이유](./WhatEventBubbling/README.md/#typescript를-사용해야-하는-이유)
   - [Framework, Library](./WhatEventBubbling/README.md/#프레임워크와-라이브러리)
   - [불변성](./WhatEventBubbling/README.md/#불변성)
@@ -38,3 +39,7 @@
   - [생활 속의 보안](./School/생활속의보안/README.md)
   - [프론트엔드개발](./School/프론트엔드개발/README.md)
 - [State](./State/README.md)
+
+---
+
+- [기억해두고 싶은 말](./Memory/README.md)
