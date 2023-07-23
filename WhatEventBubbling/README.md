@@ -730,6 +730,12 @@ useQuery는 get을 위한 api다.
 
 useMutation는 post, delete, update를 위한 api다.
 
+## webrtc
+
+Web Real-Time Communication 의 약자로 웹/앱에서 별다른 소프트웨어 없이 카메라, 마이크 등을 사용하여 실시간 커뮤니케이션을 제공해주는 기술이다.
+
+실시간으로 데이터를 교환할 수 있는 이유는 시그널링이라 부르는 NAT 우회 과정을 거치기 때문이다.
+
 ---
 
 # 이것 저것
