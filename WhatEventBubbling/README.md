@@ -730,6 +730,14 @@ useQuery는 get을 위한 api다.
 
 useMutation는 post, delete, update를 위한 api다.
 
+## 실행 컨텍스트 (execution context)
+
+실행 컨텍스트란 자바스크립트 코드가 실행되는 환경 정보들을 모아놓은 객체이다.
+
+모든 자바스크립트 코드는 실행 컨텍스트 내부에서 실행되며 전체 코드의 환경과 순서를 보장한다.
+
+실행 컨텍스트는 식별자를 등록하고 관리하는 스코드와 코드 실행 순서 관리를 구현한 내부 매커니즘이다.
+
 ## webrtc
 
 Web Real-Time Communication 의 약자로 웹/앱에서 별다른 소프트웨어 없이 카메라, 마이크 등을 사용하여 실시간 커뮤니케이션을 제공해주는 기술이다.
@@ -833,3 +841,212 @@ objectives and key result
 프로그램의 실행 과정에서 호출된 메소드들의 순서와 위치 정보를 나타내는 것이다.
 
 스택 트레이스를 통해 예외가 발생한 원인을 추적하고 디버깅하는 데에 매우 유용하다.
+
+## python
+
+**프로그래밍의 자료형**
+
+정수, 소수, 문자열, 불린
+
+**추상화**
+
+복잡한 내용은 숨기고 주요 기능에만 신경 쓰자
+
+**프로그래밍에서의 추상화**
+
+- 변수
+
+값을 저장하는 것
+
+- 함수
+
+명령을 저장하는 것
+
+```python
+def hello(): # 함수의 헤더
+    print("Hello!")
+    print("Welcome to Suwon")
+
+hello()
+```
+
+**파라미터**
+: 함수에 넘겨 주는 값
+
+```python
+def hello(name):
+    print("Hello!")
+    print(name)
+    print("Welcome to Suwon")
+
+hello("Chris")
+```
+
+**여러 개의 파라미터**
+
+```python
+def print_sum(a, b, c):
+    print(a + b + c)
+
+print_sum(7, 3, 2)
+```
+
+**return**
+: 돌려준다
+
+- 객체
+
+## 숫자형
+
+정수형과 정수형간의 연산은 모두 정수형으로 나온다.
+
+```python
+# 나머지
+print(7 % 3) # 1
+
+# 거듭제곱
+print(2**3) # 2의 3제곱 -> 8
+```
+
+소수형과 소수형간의 연산은 모두 소수형으로 나온다.
+
+```python
+# 나머지
+print(7.0 % 3.0) # 1.0
+
+# 거듭제곱
+print(2.0**3.0) # 8.0
+```
+
+소수형과 정수형간의 연산은 모두 소수형으로 나온다.
+
+```python
+# 나머지
+print(7 % 3.0) # 1.0
+
+# 거듭제곱
+print(2.0**3) # 8.0
+```
+
+**나눗셈**
+
+나눗셈은 정수형 정수형이어도 항상 소수형으로 나온다.
+
+```python
+print(7 / 2) # 3.5
+print(6 / 2) # 3.0
+print(7.0 / 2) # 3.5
+print(6.0 / 2.0) # 3.0
+```
+
+**floor division** (버림 나눗셈)
+
+버림 나눗셈을 할 때 하나라도 소수형이면 결과값은 소수형으로 나온다. -> 원래 결과 값에 .0만 붙는다.
+
+```python
+# floor division (버림 나눗셈)
+print(7 // 2) # 3
+print(8 // 3) # 2
+print(8.0 // 3) # 2.0
+print(8 // 3.0) # 2.0
+print(8.0 // 3.0) # 2.0
+
+# round (반올림)
+print(round(3.1415926535)) # 3
+print(round(3.1415926535, 2)) # 3.14
+print(round(3.1415926535, 4)) # 3.1416
+```
+
+## 문자열
+
+키보드로 쓸 수 있는 문자들을 표현하는 자료형
+
+'슬희'
+
+역슬래쉬를 써서 문자열안에 따옴표를 의도했음을 알려준다.
+
+```python
+print("I\'m\"excited\" to learn Python!")
+```
+
+## 형 변환 (Type Conversion)
+
+값을 한 자료형에서 다른 자료형으로 바꾸는 것
+
+```python
+print(int(3.8)) # 3
+print(float(3)) # 3.0
+```
+
+```python
+print(int("2") + int("5")) # 7
+print(float("1.1") + float("2.5")) # 3.6
+
+print(str(2) + str(5)) # 25
+```
+
+```python
+age = 23
+print("제 나이는" + str(age) + "살입니다.")
+```
+
+```python
+print(int("Hello World!")) -> 오류 (논리적으로 말이 안 됨)
+```
+
+**문자열 포매팅**
+
+```python
+year = 2023
+month = 8
+day = 1
+
+print("오늘은 " + str(year) + "년 " + str(month) + "월 " + str(day) + "일입니다.")
+
+print("오늘은 {}년 {}월 {}일입니다.".format(year, month, day))
+
+date_string = "오늘은 {}년 {}월 {}일입니다."
+print(date_string.format(year, month, day))
+```
+
+**format 다루기**
+
+```python
+num_1 = 1
+num_2 = 2
+
+print("{0} 나누기 {1}은 {2}입니다.".format(num_1, num_2, num_1 / num_2)) # 1 나누기 2은 0.5입니다.
+
+# f는 float의 f
+# :.2f -> 소수점 둘째자리로 반올림 해라
+# 정수로 바꾸고 싶다면 :.0f
+print("{0} 나누기 {1}은 {2:.2f}입니다.".format(num_1, num_2, num_1 / num_2)) # 1 나누기 2은 0.50입니다.
+```
+
+**f-string**
+
+파이썬 버전 3.6부터 새롭게 나온 방식
+
+```python
+name = "슬희"
+age = 23
+
+print(f"제 이름은 {name}이고 {age}살입니다.") # 제 이름은 슬희이고 23살입니다.
+```
+
+```python
+wage = 5  # 시급 (1시간에 5달러)
+exchange_rate = 1142.16  # 환율 (1달러에 1142.16원)
+
+# "1시간에 5달러 벌었습니다."
+print("{}시간에 {}{} 벌었습니다.".format(1, wage * 1, "달러"))
+
+# "5시간에 25달러 벌었습니다."
+print("{}시간에 {}{} 벌었습니다.".format(wage, wage**2,"달러"))
+
+# "1시간에 5710.8원 벌었습니다."
+print("{}시간에 {:.1f}{} 벌었습니다.".format(1, exchange_rate*wage, "원"))
+
+# "5시간에 28554.0원 벌었습니다."
+print("{}시간에 {:.1f}{} 벌었습니다.".format(wage, wage*(exchange_rate*wage), "원"))
+```
