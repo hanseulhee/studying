@@ -1050,3 +1050,93 @@ print("{}시간에 {:.1f}{} 벌었습니다.".format(1, exchange_rate*wage, "원
 # "5시간에 28554.0원 벌었습니다."
 print("{}시간에 {:.1f}{} 벌었습니다.".format(wage, wage*(exchange_rate*wage), "원"))
 ```
+
+## 불 대수
+
+진리값
+true, false
+
+### 불 대수의 연산
+
+AND, OR, NOT
+
+### 명제
+
+참 또는 거짓이 확실한 문장
+
+### AND 연산
+
+x와 y가 모두 참일 때만 x AND y가 참이다.
+
+```markdown
+대한민국의 수도는 서울이다. AND 2는 1보다 크다.
+
+-> 둘다 TRUE이므로 TRUE
+```
+
+### OR 연산
+
+x와 y 중 하나라도 참이면 x OR y가 참이다.
+
+둘 다 거짓이어야 FALSE다.
+
+```markdown
+대한민국의 수도는 서울이다. OR 대한민국의 수도는 제주도다.
+
+-> 하나라도 TRUE이므로 TRUE
+```
+
+### NOT 연산
+
+TRUE면 FALSE, FALSE면 TRUE로 만들어 준다.
+
+```markdown
+NOT 대한민국의 수도는 서울이다.
+
+-> 대한민국의 수도는 서울이 아니다. -> FALSE
+
+NOT 2는 1보다 작다.
+
+-> 2는 1보다 작지 않다. -> TRUE
+```
+
+## 불린형
+
+참과 거짓 (True, False)
+
+```python
+print(not not True) # not False -> True
+
+print(not not False) # not True -> False
+```
+
+```python
+print(7 == 7 or (4 < 3 and 12 > 10)) # True
+```
+
+```python
+x = 3
+
+print(x > 4 or not (x < 2 or x == 3)) # False
+```
+
+### 타입
+
+```python
+print(type(4 / 2))
+
+# 4 / 2는 2.0이다. 따라서 <class 'int'>가 아니라 <class 'float'>가 출력된다.
+
+# 나눗셈을 할 경우 항상 실수 값으로 돌려준다.
+```
+
+```python
+def hello():
+  print("Hello world!")
+
+print(type(hello)) # <class 'function'>
+print(type(print)) # <class 'builtin_function_or_method'>
+
+# 함수도 하나의 자료형이다.
+# builtin_function -> 내장되어 있는 함수
+```
