@@ -702,3 +702,16 @@ print(today.hour)  # 시
 print(today.minute)  # 분
 print(today.second)  # 초
 ```
+
+## split
+
+```python
+string = "1. 2. 3. 4. 5. 6"
+
+print(string.split(".")) # ['1', ' 2', ' 3', ' 4', ' 5', ' 6']
+
+print(string.split(". ")) # ['1', '2', '3', '4', '5', '6']
+
+name = "Han, Seulhee"
+print(name.split(", ")) # ['Han', 'Seulhee']
+```
