@@ -654,3 +654,51 @@ print(y) # [2, 3, 4, 7, 11]
 ## 리스트와 문자열
 
 리스트는 수정 가능, 문자열은 수정 불가
+
+## 모듈
+
+기능들을 정리해 놓은 것
+
+## 스탠다드 라이브러리
+
+```python
+import math
+import os
+import random
+```
+
+randint()
+
+randint(a, b) -> a, b 두 수 사이의 어떤 랜덤한 **정수**를 리턴하는 함수
+
+```python
+import random
+
+print(random.randint(1, 20)) # 1부터 20까지 아무 숫자 1개
+```
+
+**uniform()**
+
+두 수 사이의 랜덤한 **소수**를 리턴하는 함수
+
+uniform(a, b)를 하면, a ≤ N ≤ b를 만족하는 어떤 랜덤한 소수 N을 리턴한다.
+
+**datetime**
+
+```python
+pi_day = datetime.datetime(2020, 3, 14) # 2020-03-14 00:00:00
+
+pi_day = datetime.datetime(2020, 3, 14, 13, 6, 15) # 2020-03-14 13:06:15
+
+today = datetime.datetime.now() # 2023-08-04 17:49:12.360266
+
+today = datetime.datetime.now()
+
+print(today)
+print(today.year)  # 연도
+print(today.month)  # 월
+print(today.day)  # 일
+print(today.hour)  # 시
+print(today.minute)  # 분
+print(today.second)  # 초
+```
