@@ -20,6 +20,13 @@
   - [변수 VS 상수](./WhatEventBubbling/README.md/#변수-vs-상수)
   - [Fragments VS <></>](./WhatEventBubbling/README.md/#fragments-vs)
   - [Utils](./WhatEventBubbling/README.md/#utils-폴더)
+  - [TBD](./WhatEventBubbling/README.md/#tbd)
+  - [Git Flow](./WhatEventBubbling//README.md/#git-flow)
+  - [프로그래밍 언어](./WhatEventBubbling/README.md/#프로그래밍-언어)
+
+- [Python](./Python/README.md)
+- [AllBasic](./AllBasic/README.md)
+- [기억해두고 싶은 말](./Memory/README.md)
 
 ---
 
