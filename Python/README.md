@@ -431,3 +431,226 @@ print(x)
 ## if문
 
 elif 문
+
+```python
+i = 1
+while i <= 100:
+    if i % 8 == 0 and i % 12 != 0:
+        print(i)
+    i += 1
+```
+
+```python
+i = 1
+total = 0
+
+while i < 1000:
+    if i % 2 == 0 or i % 3 == 0:
+        total += i
+    i += 1
+
+print(total)
+```
+
+## 리스트 슬라이싱
+
+numbers[2:]
+
+-> index 2부터 마지막까지
+
+numbers[:3]
+
+-> 처음부터 index 2까지
+
+numbers[0:3]
+
+-> 0부터 index 2까지
+
+## 리스트 함수
+
+```python
+numbers = []
+numbers.append(5) # [5]
+numbers.append(8) # [5, 8]
+len(numbers) # 2
+```
+
+del -> 삭제
+
+```python
+numbers = [2, 3, 5, 7]
+del numbers[3]
+print(numbers) # [2, 3, 5]
+```
+
+insert -> 삽입 (원하는 위치에 삽입 가능)
+
+```python
+numbers = [2, 3, 5, 7]
+numbers.insert(4, 37)
+print(numbers) # [2, 3, 5, 7, 37]
+```
+
+## 리스트 정렬
+
+sorted
+: 기존 리스트는 건드리지 않고 정렬된 새로운 리스트를 리턴
+
+```python
+numbers = [2, 5, 3, 7]
+new_list = sorted(numbers)
+print(new_list) # [2, 3, 5, 7]
+```
+
+**내림차순**
+
+```python
+numbers = [2, 5, 3, 7]
+new_list = sorted(numbers, reverse=True)
+print(new_list) # [7, 5, 3, 2]
+```
+
+sort
+: 아무것도 리턴하지 않고 기존 리스트를 정렬
+
+```python
+numbers = [2, 5, 3, 7]
+print(numbers.sort()) # None
+
+numbers = [2, 5, 3, 7]
+numbers.sort()
+print(numbers) # [2, 3, 5, 7]
+```
+
+```python
+numbers = [2, 5, 3, 7]
+numbers.sort(reverse=True)
+print(numbers) # [7, 5, 3, 2]
+```
+
+## 리스트 안의 리스트 (Nested List)
+
+```python
+grades = [[62, 75, 77], [78, 81, 86], [85, 91, 89]]
+
+# 첫 번째 학생의 성적
+print(grades[0])
+
+# 세 번째 학생의 성적
+print(grades[2])
+
+# 첫 번째 학생의 첫 번째 시험 성적
+print(grades[0][0])
+```
+
+### index 메소드
+
+```python
+members = ["영훈", "윤수", "태호", "혜린"]
+print(members.index("윤수")) # 1
+print(members.index("태호")) # 2
+```
+
+## for문
+
+**range**
+
+메모리 효율성 good
+
+```python
+for i in range(start, stop):
+    print(i)
+# start 부터 stop - 1까지의 범위
+```
+
+```python
+for i in range(10):
+    print(i)
+# 0부터 9까지의 범위
+```
+
+```python
+for i in range(start, stop, step):
+    print(i)
+# start 부터 stop - 1까지의 범위, 간격 step
+```
+
+## 사전 (dictionary)
+
+key-value 쌍
+
+순서라는 개념이 없음, 사전의 key는 문자열, 정수형 다 가능
+
+```python
+my_dictionary = {
+    5: 25,
+    2: 4,
+    3: 9
+}
+
+print(type(my_dictionary)) # dict
+
+print(my_dictionary[3]) # 9
+
+my_dictionary[9] = 81
+print(my_dictionary) # { 5: 25, 2: 4, 3: 9, 9: 81 }
+```
+
+**values**
+
+```python
+my_dictionary = {
+    5: 25,
+    2: 4,
+    3: 9
+}
+
+print(my_dictionary.values()) # dict_values([25, 4, 9])
+
+print(25 in my_dictionary.values()) # True
+print(20 in my_dictionary.values()) # False
+
+for value in my_dictionary.values():
+    print(value)
+    # 25
+    # 4
+    # 9
+
+for key in my_dictionary.keys():
+    print(key)
+    # 5
+    # 2
+    # 3
+```
+
+**items**
+
+```python
+for key in my_dictionary.keys():
+    value = my_dictionary[key]
+    print(key, value)
+    # 5 25
+    # 2 4
+    # 3 9
+
+for key, value in my_dictionary.items():
+    print(key, value)
+    # 5 25
+    # 2 4
+    # 3 9
+```
+
+## Aliasing
+
+```python
+x = [2, 3, 5, 7, 11]
+y = list(x) # 복제 함으로써 x의 리스트가 바뀌지 않게 함
+y[2] = 4
+
+print(x) # [2, 3, 5, 7, 11]
+print(y) # [2, 3, 4, 7, 11]
+```
+
+## 리스트와 문자열
+
+리스트는 수정 가능, 문자열은 수정 불가
