@@ -722,6 +722,28 @@ print(today.minute)  # 분
 print(today.second)  # 초
 ```
 
+## 파일 읽기
+
+```python
+with open("file.txt", "r") as f: # r은 read, w은 write, a는 append
+    for line in f:
+        print(line)
+```
+
+## strip
+
+print 문은 출력될 때 기본적으로 한 줄 엔터가 됌
+
+strip은 화이트 스페이스 (공백)을 없애준다.
+
+```python
+print("      abc   def   ".strip()) # abc   def
+
+with open("file.txt", "r") as f:
+    for line in f:
+        print(line.strip()) # 줄 건너뜀 사라짐
+```
+
 ## split
 
 ```python
@@ -733,4 +755,61 @@ print(string.split(". ")) # ['1', '2', '3', '4', '5', '6']
 
 name = "Han, Seulhee"
 print(name.split(", ")) # ['Han', 'Seulhee']
+```
+
+```python
+with open('data/chicken.txt', 'r') as f:
+    total_revenue = 0
+    total_days = 0
+
+    for line in f:
+        data = line.strip().split(": ")
+        revenue = int(data[1])  # 그날의 매출
+
+        total_revenue += revenue
+        total_days += 1
+
+    print(total_revenue / total_days)
+```
+
+# 파일 쓰기
+
+```python
+with open("new_file.txt", "w") as f:
+    f.write("안녕")
+    f.write("난 슬희야")
+
+# 안녕난 슬희야
+
+with open("new_file.txt", "w") as f:
+    f.write("안녕\n")
+    f.write("난 슬희야\n")
+
+# 안녕
+# 난 슬희야
+
+with open("new_file.txt", "a") as f: # a 는 append (파일이 없어도 a를 사용할 수 있다.)
+    f.write("안녕\n")
+    f.write("난 슬희야\n")
+
+# 안녕
+# 난 슬희야
+# 안녕
+# 난 슬희야
+```
+
+```python
+with open('vocabulary.txt', 'r') as f:
+    for line in f:
+        data = line.strip().split(": ")
+        english_word, korean_word = data[0], data[1]
+
+        # 유저 입력값 받기
+        guess = input("{}: ".format(korean_word))
+
+        # 정답 확인하기
+        if guess == english_word:
+            print("맞았습니다!\n")
+        else:
+            print("아쉽습니다. 정답은 {}입니다.\n".format(english_word))
 ```
