@@ -114,3 +114,200 @@ myObejct["new property"] = "new value";
 
 console.log(myObject["new property"]);
 ```
+
+## Date
+
+```javascript
+let today = new Date(2112, 7, 24);
+let jaeSangStart = new Date(2109, 6, 1);
+
+function workDayCalc(startDate) {
+  let timeDiff = today.getTime() - jaeSangStart.getTime();
+  let result = timeDiff / 1000 / 60 / 60 / 24;
+  console.log(`오늘은 입사한 지 ${result + 1}일째 되는 날 입니다.`);
+}
+
+workDayCalc(jaeSangStart);
+```
+
+## splice
+
+```javascript
+arr.splice(삭제할index, 삭제할개수, 추가할요소, 추가할요소, ...);
+```
+
+## 배열 메소드
+
+배열의 첫 요소를 삭제 : shift()
+
+```javascript
+arr.shift();
+```
+
+배열의 마지막 요소를 삭제 : pop()
+
+```javascript
+arr.pop();
+```
+
+배열의 첫 요소로 값 추가 : unshift(value)
+
+```javascript
+arr.unshift("value");
+```
+
+배열의 마지막 요소로 값 추가 : push(value)
+
+```javascript
+arr.push("value");
+```
+
+배열에서 특정 값 찾기 : indexOf()
+
+```javascript
+let brands = ["Google", "Kakao", "Naver", "Kakao"];
+console.log(brands.indexOf("Kakao")); // 1
+
+// 포함되어 있지 않다면 -1이 리턴된다.
+// 여러개 포함되어 있다면 처음 발견된 인덱스가 리턴된다.
+```
+
+배열에서 뒤에서 부터 특정 값 찾기 : lastIndexOf()
+
+```javascript
+let brands = ["Google", "Kakao", "Naver", "Kakao"];
+console.log(brands.lastIndexOf("Kakao")); // 3
+```
+
+배열에서 특정 값이 있는지 확인하기 : includes
+
+```javascript
+let brands = ["Google", "Kakao", "Naver", "Kakao"];
+console.log(brands.includes("Kakao")); // true
+```
+
+배열 뒤집기 : reverse
+
+```javascript
+let brands = ["Google", "Kakao", "Naver", "Kakao"];
+brands.reverse();
+console.log(brands); // ["Kakao", "Naver", "Kakao", "Google"]
+```
+
+## Math
+
+절댓값
+
+Math.abs(x)
+
+최댓값
+
+```javascript
+console.log(Math.max(2, -1, 4, 5, 0)); // 5
+```
+
+반올림
+
+```javascript
+console.log(Math.round(2.3)); // 2
+// 소수점 부분이 0.5 이상이면 가장 가까운 정숫값으로 올라가고, 소수점 부분이 0.5 미만이면 가장 가까운 정숫값으로 내려간다.
+```
+
+버림과 올림
+
+Math.floor(x)을 하면 x의 버림 값이, Math.ceil(x)을 하면 x의 올림 값이 리턴된다. 이 경우, 소수 부분이 얼마 인지와는 상관없다.
+
+```javascript
+console.log(Math.floor(2.49)); // 2
+console.log(Math.floor(2.8)); // 2
+console.log(Math.ceil(2.4)); // 3
+console.log(Math.ceil(2.8)); // 3
+```
+
+난수
+
+Math.random을 하면 0 이상 1 미만의 값이 랜덤으로 리턴된다.
+
+```javascript
+console.log(Math.random()); // 0.4235243234
+```
+
+---
+
+피보나치 수
+
+```javascript
+let previous = 0;
+let current = 1;
+
+for (let i = 1; i <= 50; i++) {
+  console.log(current);
+  let temp = previous; // previous를 임시 보관소 temp에 저장
+  previous = current;
+  current = current + temp;
+}
+```
+
+팩토리얼
+
+```javascript
+function factorial(n) {
+  let result = 1;
+
+  for (let i = 1; i <= n; i++) {
+    result = result * i;
+  }
+
+  return result;
+}
+```
+
+거스름돈
+
+```javascript
+function calculateChange(payment, cost) {
+  let change = payment - cost; // 거스름돈 총액
+
+  const fiftyCount = Math.floor(change / 50000);
+  change = change - 50000 * fiftyCount;
+
+  const tenCount = Math.floor(change / 10000);
+  change = change - 10000 * tenCount;
+
+  const fiveCount = Math.floor(change / 5000);
+  change = change - 5000 * fiveCount;
+
+  const oneCount = Math.floor(change / 1000);
+  change = change - 1000 * oneCount;
+
+  console.log(`50000원 지폐: ${fiftyCount}장`);
+  console.log(`10000원 지폐: ${tenCount}장`);
+  console.log(`5000원 지폐: ${fiveCount}장`);
+  console.log(`1000원 지폐: ${oneCount}장`);
+}
+
+calculateChange(100000, 33000);
+console.log("");
+calculateChange(500000, 378000);
+```
+
+팰린드롬
+
+```javascript
+function isPalindrome(word) {
+  for (let i = 0; i < Math.floor(word.length / 2); i++) {
+    let left = word[i];
+    let right = word[word.length - 1 - i];
+    if (left !== right) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(isPalindrome("racecar"));
+console.log(isPalindrome("stars"));
+console.log(isPalindrome("기러기"));
+```
+
+f
