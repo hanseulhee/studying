@@ -1,5 +1,8 @@
 # weekly paper
 
+- [1주차](#css의-cascading에-대해-설명해-주세요)
+- [2주차](#git에서-branch-merge-방법들과-각-방법의-특징을-설명해-주세요)
+
 **1 week**
 
 ## CSS의 Cascading에 대해 설명해 주세요.
@@ -32,4 +35,22 @@ position의 속성에는 `static, relative, absolute, fixed, sticky`가 있습�
 
 ## Git에서 branch merge 방법들과 각 방법의 특징을 설명해 주세요.
 
+Git에서 branch merge 방법으로 merge, rebase merge, squash merge가 있습니다.
+
+먼저 `merge`는 Fast-Forward와 3-Way-Merge가 많이 사용됩니다. Fast-Forward는 조상 브랜치 (master or main)에 변경사항이 없다면 조상 브랜치를 바로 머지하고자 하는 브랜치로 이동해서 Merge하는 것입니다.
+
+3-Way-Merge는 각 브랜치의 최신 commit과 공통 조상 커밋을 비교하고 새로운 Commit을 만들어 Merge하는 전략입니다.
+
+`rebase merge`의 경우 merge와 다르게 merge commit이 생기지 않습니다. 하나의 브랜치에서 작업한 것처럼 보이므로 히스토리를 간결하게 하고 싶을 때 사용합니다.
+
+`squash merge`는 여러 개의 commit을 하나의 commit으로 만들어줍니다.
+
 ## Git Flow 브랜치 전략에 대해 설명해 주세요.
+
+Git Flow는 `main, develop, supporting 브랜치로 구분해 브랜치를 관리`하는 전략을 의미합니다.
+
+먼저 `main 브랜치`는 출시 가능한 프로덕션 코드를 모아두는 브랜치이며 서비스와 직접적으로 연결되어 있어 최종적인 코드가 올라가는 브랜치입니다.
+
+`develop 브랜치`는 개발을 위한 코드를 모아두는 브랜치로 develop에서 개발이 완료되면 main 브랜치로 머지합니다.
+
+`supporting 브랜치`는 일정 기간 동안만 유지되는 feature, release, hotfix 브랜치로 구성됩니다. feature은 기능을 개발하는 브랜치, release는 출시 버전을 준비하는 브랜치, hotfix는 출시 버전에서 발생한 버그를 수정하는 브랜치 입니다.
