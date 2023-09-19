@@ -2,6 +2,7 @@
 
 - [1주차](#css의-cascading에-대해-설명해-주세요)
 - [2주차](#git에서-branch-merge-방법들과-각-방법의-특징을-설명해-주세요)
+- [3주차](#자바스크립트에서--와--가-어떻게-다른지-설명해-주세요)
 
 **1 week**
 
@@ -54,3 +55,38 @@ Git Flow는 `main, develop, supporting 브랜치로 구분해 브랜치를 관�
 `develop 브랜치`는 개발을 위한 코드를 모아두는 브랜치로 develop에서 개발이 완료되면 main 브랜치로 머지합니다.
 
 `supporting 브랜치`는 일정 기간 동안만 유지되는 feature, release, hotfix 브랜치로 구성됩니다. feature은 기능을 개발하는 브랜치, release는 출시 버전을 준비하는 브랜치, hotfix는 출시 버전에서 발생한 버그를 수정하는 브랜치 입니다.
+
+**3 week**
+
+## 자바스크립트에서 == 와 === 가 어떻게 다른지 설명해 주세요.
+
+`==`는느슨한 같음(loose equality)으로 두 값이 같은지 비교합니다.
+
+```javascript
+const a = 1;
+const b = "1";
+console.log(a == b); // true
+```
+
+`===`는 엄격한 같음(strict equality)으로 두 값이 같은지 비교합니다.이는 값과 자료형까지 고려합니다.
+
+```javascript
+const a = 1;
+const b = "1";
+console.log(a === b); // false
+```
+
+이에 어떤 비교를 위해서든 `===` 연산자를 사용하는 것을 권장합니다.
+
+## 자바스크립트에서 얕은 복사(Shallow Copy)와 깊은 복사(Deep Copy)에 대해 설명해 주세요.
+
+`얕은 복사`는 객체의 메모리 주소값을 복사합니다.
+
+`깊은 복사`는 실제 값을 복사합니다.
+
+**원시 값**을 변수에 할당하면 변수에는 **실제 값**이 저장됩니다. (깊은 복사)
+
+**객체**를 변수에 할당하면 변수에는 **참조 값**이 저장됩니다. (얕은 복사)
+
+원시 타입 : number, bigInt, string, boolean, null, undefined, symbol
+객체 타입 : 원시타입 외에 모든 데이터
