@@ -3,6 +3,7 @@
 - [1주차](#css의-cascading에-대해-설명해-주세요)
 - [2주차](#git에서-branch-merge-방법들과-각-방법의-특징을-설명해-주세요)
 - [3주차](#자바스크립트에서--와--가-어떻게-다른지-설명해-주세요)
+- [4주차](#브라우저가-어떻게-동작하는지-설명해-주세요)
 
 **1 week**
 
@@ -90,3 +91,119 @@ console.log(a === b); // false
 
 원시 타입 : number, bigInt, string, boolean, null, undefined, symbol
 객체 타입 : 원시타입 외에 모든 데이터
+
+**4 week**
+
+## 브라우저가 어떻게 동작하는지 설명해 주세요.
+
+---
+
+# JavaScript
+
+[태그 선택](#id로-태그-선택하기)
+[이벤트](#이벤트)
+[DOM](#dom)
+[노드](#dom-트리)
+
+**태그 선택**
+
+## id로 태그 선택하기
+
+id는 고유한 값이므로 id에 해당하는 태그 하나
+
+```js
+const myTag = document.getElementById("btns");
+
+console.log(myTag);
+```
+
+존재하지 않는 id값으로 태그를 선택하면 그 값은 null이 된다.
+
+## class로 태그 선택하기
+
+```js
+const myTags = document.getElementsByClassName("btns");
+
+console.log(myTags);
+```
+
+유사배열
+
+존재하지 않는 class 값으로 태그를 선택하면 그 값은 빈 HTMLCollection이 된다.
+
+## 태그이름으로 태그 선택하기
+
+```js
+const btns = document.getElementsByTagName("button");
+
+console.log(btns); // HTML 안에 있는 모든 button 태그를 선택하게 됌
+```
+
+## css 선택자로 태그 선택하기
+
+```js
+const myTag = document.querySelector("#myNumber"); // 가장 첫 번째 태그가 선택
+
+const myTags = document.querySelectorAll(".btn"); // 모든 요소
+// 요소가 하나밖에 없더라도 요소가 하나인 NodeList를 반환한다.
+```
+
+**이벤트와 버튼 클릭**
+
+## 이벤트
+
+**이벤트 핸들링**
+
+이벤트가 발생했을 때 어떤 특별한 동작을 하도록 이벤트를 다루는 것
+
+**이벤트 핸들러**
+
+구체적인 동작들을 코드로 표현한 것, 이벤트 리스너(Event Listener)라고도 부른다.
+
+```js
+const myBtn = document.querySelector("#grade");
+
+myBtn.onclick = function () {
+  alert("정답이다");
+};
+```
+
+**브라우저**
+
+window도 객체다. (전역객체)
+
+## DOM
+
+Document Object Model
+
+문서 객체 모델이다.
+
+즉, HTML 문서 전체를 `객체`로 표현한 것
+
+### DOM 트리
+
+각 객체를 `노드` 라고 칭함 (형제노드, 부모노드, 자식노드)
+
+**자식 요소 노드**
+
+```js
+const myBtn = document.querySelector("#content");
+console.log(myBtn.children); // 자식 요소들
+console.log(myBtn.firstElementChild); // 첫 번째 자식 요소
+console.log(myBtn.lastElementChild); // 마지막 자식 요소
+```
+
+**부모 요소 노드**
+
+```js
+const myBtn = document.querySelector("#content");
+console.log(myBtn.parentElement); // 부모 요소 하나
+```
+
+**형제 요소 노드**
+
+```js
+const myBtn = document.querySelector("#content");
+console.log(myBtn.previousElementSibling); // 이전 혹은 좌측에 있는 요소 하나
+console.log(myBtn.nextElementSibling); // 다음 혹은 우측에 있는 요소 하나
+```
