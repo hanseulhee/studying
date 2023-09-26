@@ -124,6 +124,12 @@ IP 주소를 알고난 뒤, 브라우저는 서버와 TCP 핸드쉐이크를 통
 
 [이벤트](#이벤트-핸들러)
 
+[마우스](#mouse)
+
+[키보드](#키보드)
+
+[input](#input)
+
 **태그 선택**
 
 ## id로 태그 선택하기
@@ -358,3 +364,91 @@ type - 이벤트 이름 (click, mouseup 등)
 [마우스 이벤트](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent)
 
 [키보드 이벤트](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+
+## 이벤트 버블링
+
+> 물 속에서 올라오는 버블링 같다. 이벤트 버블링
+
+하나의 요소에 이벤트가 발생하게 되면 부착된 이벤트 핸들러가 작동하게 되고 같은 타입의 이벤트에 한해서 부모요소도 동작하게 된다.
+최상단인 window를 만날 때까지 이 과정이 반복된다.
+
+즉 이벤트가 상위요소로 전파되는 것을 의미한다.
+
+이를 멈추기 위해서는
+
+```js
+e.stopPropagation();
+```
+
+but 가능한 멈추는 걸 권장하진 않음.
+
+## 이벤트 캡처링
+
+이벤트가 하위요소로 전파되는 것을 의미한다.
+
+캡쳐링 단계에서 이벤트 핸들러를 동작시키는 방법
+capture:true or true를 작성한다.
+
+```js
+elem.addEventListener(
+  "click",
+  (e) => alert(`캡쳐링 단계: ${elem.tagName}`),
+  capture:true
+);
+```
+
+## 이벤트 위임
+
+자식요소의 이벤트를 부모요소에 위임한 것
+
+## mouse
+
+**mousemove**
+
+마우스 포인터가 이동할 때
+
+clientX, pageY, offsetX 등등을 자주 사용함
+
+**mouseover**
+
+마우스 포인터가 요소 밖에서 안으로 이동할 때
+
+**mouseout**
+
+마우스 포인터가 요소 안에서 밖으로 이동할 때
+
+## 키보드
+
+**KeyboardEvent.key**
+
+이벤트가 발생한 버튼의 값
+
+**KeyboardEvent.code**
+
+이벤트가 발생한 버튼의 키보드에서 물리적인 위치
+
+## input
+
+**focusin**
+
+요소에 포커스가 되었을 때
+
+**focusout**
+
+요소에 포커스가 빠져나갈 때
+
+**focus**
+
+요소에 포커스가 되었을 때 (버블링 x)
+
+**blur**
+
+요소에 포커스가 빠져나갈 때 (버블링 x)
+
+**input**
+
+사용자가 입력을 할 때
+
+**change**
+
+요소의 값이 변했을 때
