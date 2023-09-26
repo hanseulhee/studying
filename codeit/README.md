@@ -118,6 +118,12 @@ IP 주소를 알고난 뒤, 브라우저는 서버와 TCP 핸드쉐이크를 통
 
 [노드](#dom-트리)
 
+[HTML 속성](#html-속성)
+
+[스타일 다루기](#스타일-다루기)
+
+[이벤트](#이벤트-핸들러)
+
 **태그 선택**
 
 ## id로 태그 선택하기
@@ -220,3 +226,135 @@ const myBtn = document.querySelector("#content");
 console.log(myBtn.previousElementSibling); // 이전 혹은 좌측에 있는 요소 하나
 console.log(myBtn.nextElementSibling); // 다음 혹은 우측에 있는 요소 하나
 ```
+
+## 요소 노드 주요 프로퍼티
+
+**innerHTML**
+
+html 코드를 문자열로 리턴해준다.
+
+html을 수정할 때 자주 사용된다.
+
+```js
+element.innerHTML;
+```
+
+**outerHTML**
+
+요소 노드 자체의 전체적인 HTML 코드를 문자열로 리턴해준다.
+
+```js
+element.outerHTML;
+```
+
+-> 둘 다 줄바꿈, 띄어쓰기 다 포함되어 나온다.
+
+**textContent**
+
+태그 부분만 제외해 텍스트만 가져온다.
+
+```js
+element.textContent;
+```
+
+태그 처럼 보이는 부분도 태그가 아닌 일반 텍스트로 처리 된다.
+
+## 노드 삭제
+
+**remove**
+
+```js
+todo.remove();
+
+todo.children[2].remove(); // 세번째 요소 삭제
+```
+
+## 노드 이동
+
+append, prepend, after, before
+
+```js
+todo.append(tomorrow.children[1]); // tomorrow의 두번째 요소가 todo로 이동함
+```
+
+```js
+todo.append(tomorrow.children[1]); // tomorrow의 두번째 요소가 todo로 이동함
+```
+
+```js
+tomorrow.children[1].after(todo.children[1]); // tomorrow의 두번째 요소가 todo로 이동함
+```
+
+## HTML 속성
+
+속성에 접근하기
+
+```js
+tomorrow.getAttribute("href");
+```
+
+속성 추가 (수정)하기
+
+```js
+tomorrow.setAttribute("href");
+```
+
+속성 제거하기
+
+```js
+tomorrow.removeAttribute("href");
+```
+
+-> 모두 대소문자 상관 없음
+
+## 스타일 다루기
+
+```js
+tomorrow.children[1].style.backgroundColor = "#DDDDDD";
+```
+
+카멜표기법 써야함
+
+스타일 우선순위가 바뀌고 불필요한 코드들이 많아질 수 있음
+
+따라서
+
+**className**
+
+```js
+tomorrow.children[1].classNamer = "스타일속성값";
+```
+
+but 기존 스타일 속성은 없어지고 스타일속성값으로 아예 바뀜
+
+**classList**
+
+add, remove, toggle
+
+```js
+tomorrow.children[1].classList.add("done");
+```
+
+## 이벤트 핸들러
+
+```js
+btn.addEventListener("click", 이벤트핸들러);
+```
+
+```js
+btn.removeEventListener("click", 이벤트핸들러);
+```
+
+## 이벤트 객체
+
+target - 이벤트가 발생한 요소
+
+currentTarget - 이벤트 핸들러가 등록된 요소
+
+type - 이벤트 이름 (click, mouseup 등)
+
+[더 많은 이벤트](https://developer.mozilla.org/en-US/docs/Web/API/Event)
+
+[마우스 이벤트](https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent)
+
+[키보드 이벤트](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
