@@ -151,6 +151,10 @@ POST를 제외하고 GET, PUT, DELETE 는 멱등성을 가집니다. (동일한 
 
 [input](#input)
 
+[모던 자바스크립트](#모던-자바스크립트)
+
+---
+
 **태그 선택**
 
 ## id로 태그 선택하기
@@ -473,3 +477,125 @@ clientX, pageY, offsetX 등등을 자주 사용함
 **change**
 
 요소의 값이 변했을 때
+
+---
+
+## 모던 자바스크립트
+
+```js
+const x = "3";
+const y = 5;
+
+console.log(x * y); // 15
+```
+
+자바스크립트는 연산할 때 상황에 따라 데이터 타입이 유연하게 변하는 특징이 있다.
+
+곱셈의 경우 연산 대상을 **모두 숫자 형**으로 형 변환을 한 다음 연산을 수행한다.
+
+## falsy 값
+
+null, '', 0, undefined, false, NaN
+
+## AND, OR
+
+자바스크립트에서 AND 연산자는 왼쪽 값이 true 면 오른쪽 값을 리턴한다.
+왼쪽 값이 false 면 왼쪽 값을 리턴한다.
+
+OR 연산자는 왼쪽 값이 true 면 왼쪽 값을 리턴한다.
+왼쪽 값이 false 면 오른쪽 값을 리턴한다.
+
+```js
+console.log(true && false); // false
+console.log("sh" && "hi"); // hi
+console.log(null && undefined); // null
+
+console.log(0 || true); // true
+console.log({} || 123); // {}
+```
+
+(조건식으로 활용 가능)
+
+```js
+console.log(("codeit" && 123) || null);
+// 아래처럼 계산
+console.log(("codeit" && 123) || null);
+```
+
+AND 와 OR 연산자 사이에서는 AND 연산자의 우선순위가 더 높다.
+
+## this
+
+웹 브라우저에서 this가 사용될 때는 전역 객체, Window 객체를 가지게 된다. 그러나 객체의 메소드를 정의하기 위한 함수 안에선 메소드를 호출한 객체를 가리키게 된다.
+
+arrow function에서 this의 값은 일반함수처럼 호출한 대상에 따라 상대적으로 변하지 않고 arrow function이 선언되기 직전에 유효한 this 값과 똑같은 값을 가지고서 동작한다.
+
+따라서 만약 메소드를 만들 때 this에 메소드를 호출한 객체를 가리키고 싶다면 arrow function 보다는 일반 함수를 사용한다.
+
+## Spread
+
+ES2015에서 Spread 구문이 등장했음
+
+```js
+const numbers = [1, 2, 3];
+
+console.log(...numbers); // 1 2 3
+```
+
+```js
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+
+const arr3 = [...arr1, ...arr2];
+console.log(arr3); // [1, 2, 3, 4, 5, 6]
+```
+
+### 구조 분해
+
+```js
+const rank = ["슬희", "머", "머라"];
+
+const [macbook, ipad, airpods] = rank; // 할당되는 값이 배열이어야 함
+
+consold.log(macbook); // 슬희
+```
+
+```js
+let macbook = "슬희";
+let ipad = "머";
+
+[macbook, ipad] = [ipad, macbook]; // 교환
+```
+
+```js
+const macbook = {
+  title: "맥북",
+  price: 3900000,
+  memory: "16GB",
+};
+
+const { title, price } = macbook;
+
+console.log(title); // 맥북
+console.log(price); // 3900000
+```
+
+---
+
+## 웹 브라우저와 서버
+
+## fetch
+
+서버로 request를 보내고 response를 받는다.
+
+```js
+fetch("url")
+  .then((response) => response.text())
+  .then((result) => {
+    console.log(result);
+  });
+```
+
+## 콜백
+
+then -> 콜백을 등록해주는 메소드, promise 객체의 메소드
