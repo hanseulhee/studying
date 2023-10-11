@@ -27,6 +27,8 @@
   - [IT 인프라](./WhatEventBubbling/README.md/#it-인프라)
   - [온콜](./WhatEventBubbling/README.md/#온콜)
 
+- [비동기](./Asynchronous/README.md)
+- [Codeit](./Codeit/README.md)
 - [Python](./Python/README.md)
 - [AllBasic](./AllBasic/README.md)
 - [기억해두고 싶은 말](./Memory/README.md)
@@ -49,7 +51,3 @@
   - [생활 속의 보안](./School/생활속의보안/README.md)
   - [프론트엔드개발](./School/프론트엔드개발/README.md)
 - [State](./State/README.md)
-
----
-
-- [기억해두고 싶은 말](./Memory/README.md)
