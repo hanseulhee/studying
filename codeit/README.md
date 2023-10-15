@@ -5,6 +5,8 @@
 - [3주차](#자바스크립트에서--와--가-어떻게-다른지-설명해-주세요)
 - [4주차](#브라우저가-어떻게-동작하는지-설명해-주세요)
 - [5주차](#자바스크립트-this에-대해-설명해-주세요)
+- [6주차](#예시의-코드를-실행할-때-콘솔에-출력될-값과-그-이유를-설명해-주세요)
+- [7주차](#리액트에서-virtual-dom이-무엇인지-이를-사용하는-이유는-무엇인지-설명해-주세요)
 
 **1 week**
 
@@ -126,6 +128,52 @@ HTTP 메소드란 클라이언트가 웹 서버에게 사용자 리퀘스트의 
 대표적으로 GET, POST, PUT, DELETE 가 있습니다.
 
 POST를 제외하고 GET, PUT, DELETE 는 멱등성을 가집니다. (동일한 리퀘스트를 반복해 전송해도 동일한 응답이 돌아온다,)
+
+**6 week**
+
+## 예시의 코드를 실행할 때, 콘솔에 출력될 값과 그 이유를 설명해 주세요.
+
+```js
+// 1번
+let num = 1;
+
+// 2번
+setTimeout(() => {
+  num = 2;
+}, 0);
+
+// 3번
+num = 3;
+
+// 4번
+console.log(num);
+```
+
+1번 실행으로 num 에 1이 할당됩니다.
+
+2번 실행으로 setTimeout 을 Web API(NodeJS의 경우 Timers 모듈)가 처리하도록 넘깁니다. 이때 중요한 건, 즉시 setTimeout 에 있는 callback을 실행할지 판단하지 않습니다. 따라서 num 은 여전히 1인 상태입니다. Web API에서는 setTimeout 작업이 완료되면 setTimeout callback 함수를 Callback Queue에 등록합니다.
+
+3번 실행으로 num 에 3이 재할당됩니다.
+
+4번 실행으로 화면에 3이 출력됩니다.
+
+이렇게 모든 실행을 마치면 그 후에 Event Loop를 돌아 Callback Queue에 있는 callback 함수를 Call Stack으로 가져와 실행하고 num 은 2가 재할당됩니다.
+
+## AJAX에 대해 설명해 주세요.
+
+AJAX는 Asynchronous JavaScript And XML의 줄임말입니다. 이는 자바스크립트를 사용해서 비동기적으로 리퀘스트를 보내고 리스폰스를 받는데 기반이 되는 기술들의 집합을 의미합니다.
+
+**7 week**
+
+## 리액트에서 Virtual DOM이 무엇인지, 이를 사용하는 이유는 무엇인지 설명해 주세요.
+
+Virtual DOM (VDOM)은 UI의 이상적인 또는 가상적인 표현을 메모리에 저장하고 ReactDOM과 같은 라이브러리에 의해 실제 DOM과 동기화하는 프로그래밍 개념입니다. 이 과정을 재조정(Reconciliation)이라고 합니다.
+
+이렇게 연산이 끝난 뒤 최종적인 변화를 실제 DOM에 반영해서 여러 번 reflow, repaint가 발생할 수 있는 작업을 한번으로 줄여줍니다. 또한 Virtual DOM은 변화에 대한 관리를 자동화하고 추상화해서 작업의 편의성을 제공합니다.
+
+## 리액트에서 배열을 렌더링할 때 key를 써야 하는 이유에 대해 설명해 주세요.
+
+key는 리액트가 어떤 항목을 변경, 추가 또는 삭제할지 식별하는 것을 돕습니다. key는 엘리먼트에 안정적인 고유성을 부여하기 위해 배열 내부의 엘리먼트에 지정해야 합니다.
 
 ---
 
@@ -580,6 +628,10 @@ console.log(title); // 맥북
 console.log(price); // 3900000
 ```
 
+## 배열 관련 메소드
+
+forEach, map, filter, find, some, every, reduce, sort, reverse, Set, Map,
+
 ---
 
 ## 웹 브라우저와 서버
@@ -596,9 +648,29 @@ fetch("url")
   });
 ```
 
-## 콜백
+## then
 
 then -> 콜백을 등록해주는 메소드, promise 객체의 메소드
+
+promise가 fulfilled 상태가 되었을 때 then 메소드로 등록했던
+
+then을 통해 response가 왔을 때 실행할 콜백을 등록할 수 있다.
+
+새로운 Promise 객체를 리턴한다.
+
+## 비동기
+
+### Promise
+
+작업에 관한 상태 정보를 가지고 있는 객체
+
+pending (진행중)
+fulfilled (성공) (+ 작업 성공 결과) (response를 정상적으로 받았을 때)
+rejected (실패) (+ 작업 실패 정보)
+
+### Promise Chaining
+
+Chaining: 이어 붙이기, 연결하기
 
 ---
 
