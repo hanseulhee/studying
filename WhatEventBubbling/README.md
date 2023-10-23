@@ -144,7 +144,7 @@ CSR(Client-side Rendering), SSR(Server-side Rendering)에 공통적으로 **Rend
 
 <img src="https://velog.velcdn.com/images/tnehd1998/post/ef5f08e1-f991-442c-9bcb-45df60280a81/image.png" width="80%"/>
 
-브라우저가 **문자열**을 [W3C](#w3c) 표준에 지정된 **고유 토큰**으로 반환한다.
+브라우저가 **문자열**을 [W3C](#w3c) 표준에 지정된 **고유 토큰**으로 반환한다. (= 렉싱)
 
 방출된 토큰은 해당 속성 및 규칙을 정의하는 **객체**로 변환된다.
 
@@ -204,9 +204,9 @@ background, color, text-decoration, border-style, border-radius
 
 전세계의 인터넷 속도는 평균 30Mbps가 넘지 않는다.
 
-<!-- ### 브라우저 구성 요소
+### 브라우저 구성 요소
 
-브라우저는 **사용자 인터페이스, 브라우저 엔진, 렌더링 엔진, 네트워크, 자바스크립트 인터프리터, UI백엔드, 스토리지** 로 구성되어있다. -->
+브라우저는 **사용자 인터페이스, 브라우저 엔진, 렌더링 엔진, 네트워크, 자바스크립트 인터프리터, UI백엔드, 스토리지** 로 구성되어있다.
 
 ### DOM
 
