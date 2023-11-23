@@ -286,3 +286,51 @@ const [info, setInformation] = useState<Information | null>(null);
 ```
 
 ---
+
+## enum
+
+```ts
+enum Job {
+  Knight = "Knight",
+  Archer = "Archer",
+  Mage = "Mage",
+  Priest = "Priest",
+  Thief = "Thief",
+}
+
+enum Size {
+  S = "S",
+  M = "M",
+  L = "L",
+  XL = "XL",
+}
+
+let product: {
+  sizes: Size[];
+} = {
+  sizes: [Size.M, Size.S],
+};
+```
+
+## 타입 별칭
+
+```ts
+type Cart = string[];
+
+const cart : Cart = {
+  "슬희",
+  "슬",
+};
+
+interface User {
+  cart: Cart;
+}
+```
+
+interface를 권장
+
+## Union 타입
+
+~ 이거나 (|)
+
+if문, in 연산자 활용 가능
