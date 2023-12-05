@@ -1,3 +1,11 @@
+# Next.js Layout
+
+[layout](https://nextjs.org/docs/pages/building-your-application/routing/pages-and-layouts#per-page-layouts)
+
+스타일이 대부분 겹치고 코드의 반복이 일어날 때 공통 layout을 분리할 수 있다.
+
+---
+
 # Props
 
 props는 부모 컴포넌트로부터 자식 컴포넌트에 데이터를 보낼 수 있게 해준다.
@@ -58,9 +66,7 @@ function App() {
 
 onClick을 커스텀 컴포넌트에 넣는다면 이것은 단지 하나의 prop일 뿐 이벤트 리스너가 아니다. 여기서 onClick은 단순히 props의 이름이다. prop들은 자동적으로 return문 안으로 들어가지 않고 직접 prop들을 넣어줘야 한다.
 
-
 <div id="4"></div>
-
 
 ### React Memo
 
@@ -91,12 +97,7 @@ MemorizedBtn은 memorized version의 Btn이다.
 MemorizedBtn을 이용해 props가 변경되지 않는다면 다시 그릴 필요가 없다고 전해주었다.
 따라서 위 코드를 실행하면 Save Changes를 클릭했을 때 단 한 번만 re-render된다.
 
-
-
-
-
 <div id="2"></div>
-
 
 ### Prop Types
 
@@ -166,7 +167,6 @@ function Btn({ text, fontSize = 16 }) {
 
 만약 fontSize가 존재하지 않는다면(undefined) 값을 줄 수 있다. fontSize의 default값을 16으로 지정해주었다. 이것은 fontSize가 prop으로서 설정되지 않은 두 번째 Btn에만 해당된다.
 즉 정의되지 않은 변수에 관한 기본값을 줄 수 있다. (Javascript 문법)
-
 
 ### 총정리
 
