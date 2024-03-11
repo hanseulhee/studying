@@ -26,7 +26,6 @@
   - [Normal Flow](./WhatEventBubbling/README.md/#normal-flow)
   - [IT 인프라](./WhatEventBubbling/README.md/#it-인프라)
   - [온콜](./WhatEventBubbling/README.md/#온콜)
-- [비동기](./Asynchronous/README.md)
 - [codeit](./codeit/README.md)
   - [husky](./codeit/README.md/#husky)
   - [인증, 인가](./codeit/README.md/#인증-인가)

@@ -2,7 +2,7 @@
 
 ## fetch
 
-promise 객체를 리턴한다.
+대표적인 비동기 요청방식 중 하나인 Ajax의 방식 중 하나로 promise 객체를 리턴한다.
 
 ## promise
 
@@ -22,7 +22,7 @@ fetch 함수가 request를 보내고 response를 정상적으로 받았을 때 f
 
 2. promise 객체가 아닌 값을 리턴하는 경우
 
-promise가 fulfiled 상태가 됌
+Promise 객체 이외에 숫자나 문자열, 일반 객체 등을 리턴하는 경우에는 fulfilled 상태이며 리턴된 값을 작업 성공 결과로 가진 Promise 객체를 리턴한다.
 
 ### rejected 상태
 
