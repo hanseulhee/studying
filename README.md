@@ -49,6 +49,8 @@
 - [API](./API/README.md)
 - School
   - [컴퓨터 네트워크](./School/컴퓨터네트워크/README.md)
+  - [고급자바 프로그래밍](./School/고급자바/README.md)
+  - [하이브리드 앱 개발](./School/하이브리드앱/README.md)
   - [생활 속의 보안](./School/생활속의보안/README.md)
   - [프론트엔드개발](./School/프론트엔드개발/README.md)
 - [State](./State/README.md)
