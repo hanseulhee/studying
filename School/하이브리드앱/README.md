@@ -12,4 +12,5 @@ View, Model, Controller 영역으로 분할하여 개발하는 방식임
 
 View -> css (레이아웃), Model -> html (데이터), Controller -> javascript (동적 처리)
 
+> HTML5 기초 다지기 완
 
