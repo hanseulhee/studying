@@ -462,6 +462,16 @@ p.5 ~ 7 공부 필요 없음
 
 -> 비트 단위의 NOT 연산 (일항 연산, unary operation)
 
+## 클래스기반 주소지정
+
+IP 주소는 시작할 때 클래스(class) 개념 이용
+
+1990년대 중반에 새로운 구조인 클래스 없는 주소지정(classless addressing) 방법 등장
+
+5개(A, B, C, D, E)의 클래스로 구분
+
+<img width="80%" alt="스크린샷 2024-04-04 오후 5 40 21" src="https://github.com/hanseulhee/studying/assets/63100352/db469e4a-a2eb-4f7c-b1da-fa8d042cc0e9">
+
 ---
 
 **인터넷 표준**
