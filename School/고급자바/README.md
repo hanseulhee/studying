@@ -185,3 +185,97 @@ Map(), flatMap(), mapToObj(), mapToInt(), asLongStram(), boxed()
 조건에 따라 그룹핑하는 것을 의미한다.
 
 ---
+
+(기말)
+
+### 리듀싱 연산
+
+리듀싱 연산은 스트림원소를 단 하나의 값으로 축약시키는 연산이다. (하나씩 줄이면서)
+
+```java
+reduce(0, (x, y) -> x + y)
+```
+
+기본은 Optional이 반환값이다.
+
+```java
+import java.util.List;
+import java.util.Optional;
+import java.util.OptionalInt;
+
+public class Reduce1Demo {
+    public static void main(String[] args) {
+        List<Integer> numbers = List.of(3, 4, 5, 1, 2);
+
+        int sum1 = numbers.stream().reduce(0, (a, b) -> a + b); // 0에다 하나씩 더해라
+        int sum2 = numbers.stream().reduce(0, Integer::sum); // 반환값도 int
+        int mul1 = numbers.stream().reduce(1, (a, b) -> a * b); // 초기값은 1
+
+        System.out.println(sum1);
+        System.out.println(sum2); // 15
+        System.out.println(mul1); // 120
+
+        Optional<Integer> sum3 = numbers.stream().reduce(Integer::sum); // Optional에서는 값을 반환하기 위해서는 get을 씀
+        OptionalInt sum4 = numbers.stream().mapToInt(x -> x.intValue()).reduce(Integer::sum); // mapToInt를 통해 Integer로 변환
+        Optional<Integer> mul2 = numbers.stream().reduce((a, b) -> a * b); // 초기값이 없기 때문에 Optional을 반드시 작성해야 한다.
+
+        System.out.println(sum3.get());
+        System.out.println(sum4.getAsInt()); //int 값 반환
+        mul2.ifPresent(Util::print);
+    }
+}
+```
+
+### 컬렉터 연산
+
+컬렉션을 변환시키는 것. 원소를 그룹핑하여 새로운 컬렉션(집합)을 구성한다.
+
+```java
+import java.util.IntSummaryStatistics;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class Collect1Demo {
+    public static void main(String[] args) {
+        Stream<Nation> sn = Nation.nations.stream();
+
+        Double avg = sn.collect(Collectors.averagingDouble(Nation::getPopulation));
+        System.out.println("인구 평균 : " + avg);
+
+        sn = Nation.nations.stream();
+        Long num = sn.collect(Collectors.counting());
+        System.out.println("나라 개수 : " + num);
+
+        sn = Nation.nations.stream();
+        String name1 = sn.limit(4).map(Nation::getName).collect(Collectors.joining("-")); // sn을 4개만 추려내라. map으로 Nation, getName을 string으로 변환시킨다. 하이픈을 넣어서 연결시켜라
+        System.out.println("4개 나라(방법 1) : " + name1); // ROK-New Zealand-USA-China
+
+        sn = Nation.nations.stream();
+        String name2 = sn.limit(4).collect(Collectors.mapping(Nation::getName, Collectors.joining("+"))); // 콜렉터에 매핑을 사용해도 된다.
+        System.out.println("4개 나라(방법 2) : " + name2); // ROK+New Zealand+USA+China
+
+        sn = Nation.nations.stream();
+        Optional<Double> max = sn.map(Nation::getPopulation).collect(Collectors.maxBy(Double::compare));
+        System.out.println("최대 인구 나라의 인구 수 : " + max); // Optional[1355.7]
+
+        sn = Nation.nations.stream();
+        IntSummaryStatistics sta = sn.collect(Collectors.summarizingInt(x -> x.getGdpRank())); // summarizingInt는 int타입으로 통계 정보를 나타낸다.
+        System.out.println(sta); // IntSummaryStatistics{count=8, sum=227, min=1, average=28.375000, max=63)
+    }
+}
+```
+
+### 그룹핑
+
+스트림 원소를 그룹핑하여 새로운 컬렉션으로 만든다.
+
+### 파티셔닝
+
+조건에 따라 그룹핑한다.
+
+(13장)
+
+### 스트림
+
+스트림이란 순서가 있는 데이터의 연속적인 흐름이다.
