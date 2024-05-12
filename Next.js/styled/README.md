@@ -12,8 +12,6 @@ next.js에서 styled-components를 사용하는 이유는 다음과 같습니다
 
 이러한 이유로 가장 적합한 styled-components를 사용합니다.
 
----
-
 # Next.js 환경에서 CSS in JS?
 
 Next.js의 Pre-Rendering 때문에 Next.js 환경에서의 CSS in JS는 렌더링이 될때마다 스타일링이 한 박자 늦게 보여지는 이슈가 있습니다.
@@ -73,8 +71,6 @@ const nextConfig = {
 export default nextConfig;
 ```
 
----
-
 # Theme, Global style
 
 추가적으로 아래와 같이 자주 사용되는 사항들로 theme을 정리합니다.
@@ -125,8 +121,6 @@ const GlobalStyle = createGlobalStyle`
 export default GlobalStyle;
 ```
 
----
-
 # 마무리
 
 styled-components로 작성된 파일은 'use client'를 사용하고 서버 컴포넌트에서 해당 파일들을 import해서 사용하는 방법이 최선이지 않을까 생각합니다.
@@ -138,4 +132,5 @@ next.js에서 styled-components 사용하는 것은 비교적 초기 설정이 �
 감사합니다.
 
 **참고링크**
+
 https://dev.to/rashidshamloo/using-styled-components-with-nextjs-v13-typescript-2l6m
