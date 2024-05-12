@@ -21,14 +21,10 @@
   - [프로그래밍 언어](./WhatEventBubbling/README.md/#프로그래밍-언어)
   - [Normal Flow](./WhatEventBubbling/README.md/#normal-flow)
 
----
-
 ## 브라우저
 
-- [브라우저 렌더링 과정](./WhatEventBubbling/README.md/#렌더링)
+- [브라우저 렌더링 과정](./Browser/Rendering.md)
 - [Critical Rendering Path](./WhatEventBubbling/README.md/#critical-rendering-path)
-
----
 
 ## JavaScript
 
@@ -37,14 +33,11 @@
 - [Lodash](./WhatEventBubbling/README.md/#lodash)
 - [Numeric separators](./WhatEventBubbling/README.md/#numeric-separators)
 
----
-
 ## TypeScript
 
 - [TypeScript](./TypeScript/README.md)
 - [TypeScript를 사용해야 하는 이유](./WhatEventBubbling/README.md/#typescript를-사용해야-하는-이유)
-
----
+- [type-challenges 풀이](./TypeScript/Challenges/README.md)
 
 ## React
 
@@ -60,13 +53,9 @@
 - [API](./API/README.md)
 - [State](./State/README.md)
 
----
-
 ## Python
 
 - [Python](./Python/README.md)
-
----
 
 ## 기타
 
@@ -75,8 +64,6 @@
 - [온콜](./WhatEventBubbling/README.md/#온콜)
 - [기억해두고 싶은 말](./Memory/README.md)
 
----
-
 ## 코드잇
 
 > 코드잇 스프린트에서 진행한 교육 내용입니다.
@@ -84,8 +71,6 @@
 - [codeit](./codeit/README.md)
 - [husky](./codeit/README.md/#husky)
 - [인증, 인가](./codeit/README.md/#인증-인가)
-
----
 
 ## 학교 수업
 
