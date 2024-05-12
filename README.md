@@ -54,16 +54,14 @@
 - [API](./API/README.md)
 - [State](./State/README.md)
 
+## Next.js
+
+- [next.js에서 styled-components 사용하기](./Next.js/styled/README.md)
+
 ## Python
 
 - [Python](./Python/README.md)
-
-## 기타
-
-- [AllBasic](./AllBasic/README.md)
-- [IT 인프라](./WhatEventBubbling/README.md/#it-인프라)
-- [온콜](./WhatEventBubbling/README.md/#온콜)
-- [기억해두고 싶은 말](./Memory/README.md)
+- [Python 알고리즘 풀이](https://github.com/hanseulhee/Pygorithm)
 
 ## 코드잇
 
@@ -103,3 +101,10 @@
 - [컴퓨터 네트워크](./School/컴퓨터네트워크/README.md)
 - [고급자바 프로그래밍](./School/고급자바/README.md)
 - [하이브리드 앱 개발](./School/하이브리드앱/README.md)
+
+## 기타
+
+- [AllBasic](./AllBasic/README.md)
+- [IT 인프라](./WhatEventBubbling/README.md/#it-인프라)
+- [온콜](./WhatEventBubbling/README.md/#온콜)
+- [기억해두고 싶은 말](./Memory/README.md)
