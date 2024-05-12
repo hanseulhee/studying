@@ -24,6 +24,7 @@
 ## 브라우저
 
 - [브라우저 렌더링 과정](./Browser/Rendering.md)
+- [브라우저 주소창에 www.google.com을 입력하면 어떤 일이 일어나나요?](./Browser/Google.com.md)
 - [Critical Rendering Path](./WhatEventBubbling/README.md/#critical-rendering-path)
 
 ## JavaScript
@@ -68,7 +69,28 @@
 
 > 코드잇 스프린트에서 진행한 교육 내용입니다.
 
-- [codeit](./codeit/README.md)
+**[코드잇 문서](./codeit/README.md)**
+
+- [CSS의 Cascading에 대해 설명해 주세요.](./codeit/README.md/#css의-cascading에-대해-설명해-주세요)
+- [position의 속성들과 각각의 특징을 설명해 주세요.](./codeit/README.md/#position의-속성들과-각각의-특징을-설명해-주세요)
+- [Git에서 branch merge 방법들과 각 방법의 특징을 설명해 주세요.](./codeit/README.md/#git에서-branch-merge-방법들과-각-방법의-특징을-설명해-주세요)
+- [Git Flow 브랜치 전략에 대해 설명해 주세요.](./codeit/README.md/#git-flow-브랜치-전략에-대해-설명해-주세요)
+- [자바스크립트에서 == 와 === 가 어떻게 다른지 설명해 주세요.](./codeit/README.md/#자바스크립트에서--와--가-어떻게-다른지-설명해-주세요)
+- [자바스크립트에서 얕은 복사(Shallow Copy)와 깊은 복사(Deep Copy)에 대해 설명해 주세요.](./codeit/README.md/#자바스크립트에서-얕은-복사shallow-copy와-깊은-복사deep-copy에-대해-설명해-주세요)
+- [브라우저가 어떻게 동작하는지 설명해 주세요.](./codeit/README.md/#브라우저가-어떻게-동작하는지-설명해-주세요)
+- [자바스크립트 this에 대해 설명해 주세요.](./codeit/README.md/#자바스크립트-this에-대해-설명해-주세요)
+- [예시의 코드를 실행할 때, 콘솔에 출력될 값과 그 이유를 설명해 주세요.](./codeit/README.md/#예시의-코드를-실행할-때-콘솔에-출력될-값과-그-이유를-설명해-주세요)
+- [AJAX에 대해 설명해 주세요.](./codeit/README.md/#ajax에-대해-설명해-주세요)
+- [리액트에서 Virtual DOM이 무엇인지, 이를 사용하는 이유는 무엇인지 설명해 주세요.](./codeit/README.md/#리액트에서-virtual-dom이-무엇인지-이를-사용하는-이유는-무엇인지-설명해-주세요)
+- [리액트에서 배열을 렌더링할 때 key를 써야 하는 이유에 대해 설명해 주세요.](./codeit/README.md/#리액트에서-배열을-렌더링할-때-key를-써야-하는-이유에-대해-설명해-주세요)
+- [리액트 생명주기(life cycle)에 대해 설명해 주세요.](./codeit/README.md/#리액트-생명주기life-cycle에-대해-설명해-주세요)
+- [본인이 생각하는 CSS-in-JS의 장점과 단점을 설명해 주세요.](./codeit/README.md/#본인이-생각하는-css-in-js의-장점과-단점을-설명해-주세요)
+- [Presentational & Container 디자인 패턴에 대해 설명해 주세요.](./codeit/README.md/#presentational--container-디자인-패턴에-대해-설명해-주세요)
+- [JavaScript만 사용하는 것과 비교해 TypeScript를 사용하는 이유에 대해 설명해 주세요.](./codeit/README.md/#javascript만-사용하는-것과-비교해-typescript를-사용하는-이유에-대해-설명해-주세요)
+- [TypeScript의 동작 원리에 대해 설명해 주세요.](./codeit/README.md/#typescript의-동작-원리에-대해-설명해-주세요)
+- [리액트만 사용할 때와 비교해 Next.js를 사용하는 이유에 대해 설명해 주세요.](./codeit/README.md/#리액트만-사용할-때와-비교해-nextjs를-사용하는-이유에-대해-설명해-주세요)
+- [React Query가 만들어진 이유와 React Query를 사용할 때 얻게 되는 이점에 대해 설명해 주세요.](./codeit/README.md/#react-query가-만들어진-이유와-react-query를-사용할-때-얻게-되는-이점에-대해-설명해-주세요)
+- [서버 상태와 클라이언트 상태의 차이에 대해 설명해 주세요.](./codeit/README.md/#서버-상태와-클라이언트-상태의-차이에-대해-설명해-주세요)
 - [husky](./codeit/README.md/#husky)
 - [인증, 인가](./codeit/README.md/#인증-인가)
 
