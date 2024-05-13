@@ -6,6 +6,8 @@
 
 [18](#18번)
 
+[43](#43번)
+
 ## 14번
 
 문제: 배열(튜플) T를 받아 첫 원소의 타입을 반환하는 제네릭 First<T>를 구현하세요.
@@ -94,5 +96,37 @@ type cases = [
   Length<5>,
   // @ts-expect-error
   Length<"hello world">
+];
+```
+
+## 43번
+
+문제: `T`에서 `U`에 할당할 수 있는 타입을 제외하는 내장 제네릭 `Exclude<T, U>`를 이를 사용하지 않고 구현하세요.
+
+답안:
+
+```tsx
+type MyExclude<T, U> = T extends U ? never : T;
+```
+
+`T extends U`를 통해 T의 각 요소가 U에 할당이 가능한지를 확인합니다.
+삼항 연산자를 통해 만약 가능하면 never 타입을 반환해 해당 요소를 제외하고 할당이 가능하지 않다면 해당 요소를 그대로 반환합니다.
+
+아래는 풀지 않은 43번 문제입니다.
+
+```tsx
+/* _____________ 여기에 코드 입력 _____________ */
+
+type MyExclude<T, U> = any;
+
+/* _____________ 테스트 케이스 _____________ */
+import type { Equal, Expect } from "@type-challenges/utils";
+
+type cases = [
+  Expect<Equal<MyExclude<"a" | "b" | "c", "a">, "b" | "c">>,
+  Expect<Equal<MyExclude<"a" | "b" | "c", "a" | "b">, "c">>,
+  Expect<
+    Equal<MyExclude<string | number | (() => void), Function>, string | number>
+  >
 ];
 ```
