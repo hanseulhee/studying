@@ -6,6 +6,8 @@
 
 [3장](#3)
 
+[4장](#4)
+
 ---
 
 <div id = "1">
@@ -124,3 +126,94 @@ interface IndexSignatureEx {
   [key: string]: number;
 }
 ```
+
+인덱스드 엑세스 타입
+
+: 다른 타입의 특정 속성이 가지는 타입을 조회하기 위해 사용한다.
+
+```javascript
+type Example = {
+  a: number;
+  b: string;
+  c: boolean;
+}
+
+type IndexedAccess = Example["a" | "b"] // number | string
+type IndexedAccess2 = Example[keyof Example] // number | string | boolean
+```
+
+맵드 타입 (Mapped Types)
+
+: 다른 타입을 기반으로 한 타입을 선언할 때 사용한다.
+
+```javascript
+type Example = {
+  a: number;
+  b: string;
+  c: boolean;
+}
+
+type Subset<T> = {
+  [K in keyof T]?: T[K];
+}
+
+const aExample: Subset<Example> = {a: 3};
+const bExample: Subset<Example> = {b: "슬희"};
+const acExample: Subset<Example> = {a: 4, c: true};
+```
+
+기존 타입에 존재하던 readonly나 ? 앞에 -를 붙이면 해당 수식어를 제거한 타입을 선언할 수도 있다.
+
+제너릭
+
+: 내부적으로 사용할 타입을 미리 정해두지 않고 타입 변수를 사용하여 해당 위치를 비워 둔 다음, 실제로 그 값을 사용할 때 외부에서 타입 변수 자리에 타입을 지정하여 사용하는 방식이다.
+
+```javascript
+type ExampleArrayType<T> = T[];
+
+const array: ExampleArrayType<string> = ["슬희", "스리"];
+```
+
+any랑 다른 점은 제너릭은 아무 타입이나 무분별하게 받는 것이 아닌 배열 요소가 전부 동일한 타입이라고 보장할 수 있다.
+
+<div id = "4">
+
+## 4장
+
+## 타입 확장
+
+```javascript
+// interface 키워드 사용
+interface BaseMenuItem {
+  itemName: string | null;
+  itemImageUrl: string | null;
+  itemDiscountAmount: number;
+  stock: number | null;
+}
+
+interface BaseCartItem extends BaseMenuItem {
+  quantity: number;
+}
+
+// type 키워드 사용
+type BaseMenuItem = {
+  itemName: string | null,
+  itemImageUrl: string | null,
+  itemDiscountAmount: number,
+  stock: number | null,
+};
+
+type BaseCartItem = {
+  quantity: number,
+} & BaseMenuItem;
+```
+
+## 유니온 타입
+
+```javascript
+type MyUnion = A | B;
+```
+
+A 타입과 B 타입의 모든 값이 MyUnion 타입의 값이 된다.
+
+유니온 타입으로 선언된 값은 유니온 타입에 포함된 **모든 타입이 공통으로 갖고 있는 속성에만 접근할 수 있다.**
