@@ -8,6 +8,8 @@
 
 [43](#43번)
 
+[189](#189번)
+
 ## 14번
 
 문제: 배열(튜플) T를 받아 첫 원소의 타입을 반환하는 제네릭 First<T>를 구현하세요.
@@ -127,6 +129,21 @@ type cases = [
   Expect<Equal<MyExclude<"a" | "b" | "c", "a" | "b">, "c">>,
   Expect<
     Equal<MyExclude<string | number | (() => void), Function>, string | number>
-  >
 ];
 ```
+
+## 189번
+
+문제: Promise와 같은 타입에 감싸인 타입이 있을 때, 안에 감싸인 타입이 무엇인지 어떻게 알 수 있을까요?
+
+답안:
+
+```tsx
+type MyAwaited<T extends { then: unknown }> = Awaited<Promise<T>>;
+```
+
+Awaited는 타입스크립트에서 제공하는 유틸리티 타입으로 Promise 타입에서 감싸져 있는 타입을 추출합니다.
+
+예를 들어, `Promise<string>`을 처리할 때 `Awaited<Promise<string>>`는 string을 반환합니다.
+
+따라서 이 코드에서 Promise<T>를 사용했으므로, T가 then 메서드를 가진 객체라면 Promise처럼 처리하고 내부의 타입을 추출하게 됩니다.
