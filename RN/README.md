@@ -35,3 +35,17 @@
 ## 이미지
 
 [react-native-svg](https://github.com/software-mansion/react-native-svg)
+
+## 비디오
+
+비디오 플레이어
+
+[react-native-video](https://github.com/TheWidlarzGroup/react-native-video)
+
+## 그라데이션
+
+[react-native-linear-gradient](https://github.com/react-native-linear-gradient/react-native-linear-gradient)
+
+## 아이콘
+
+[react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
