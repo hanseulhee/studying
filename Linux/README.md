@@ -18,6 +18,10 @@
 
 [Apache](./#Apache)
 
+[Node.js](./#Nodejs)
+
+[502 Bad Gateway](/Linux/502_BadGateway.md)
+
 [명령어 게임](./#리눅스-명령어)
 
 [관련 메모장](./#관련-메모장)
@@ -312,9 +316,86 @@ mv 이동할디렉토리 대상디렉토리
 
 ## Tar
 
+```bash
+tar -cvf 압축명.tar 폴더명or파일명 # tar로 묶기
+tar -xvf 압축명.tar # 풀기
+```
+
+```bash
+zip 압축명.zip 폴더명or파일명 # zip으로 압축
+unzip 압축명.zip # 풀기
+```
+
+```bash
+gzip 압축명.gz 폴더명or파일명 # gzip으로 압축
+gzip -d 압축명.gz # 풀기
+
+tar -zcvf 압축명.tar 폴더명or파일명 # tar과 함께 압축할 시
+tar -zxvf 압축명.tar.gz # tar과 함께 풀기
+```
+
 ## Network
 
+```bash
+sudo apt install net-tools
+```
+
+```bash
+ip addr # ip 확인
+ifconfig # ip 확인
+```
+
+```bash
+route # 게이트웨이 주소 확인
+netstat -r # 게이트웨이 주소 확인
+```
+
+```bash
+hostname # 호스트네임 조히
+```
+
+```bash
+cat /etc/resolv.conf # DNS 서버 확인
+```
+
+```bash
+ping 호스트(ip주소혹은도메인명) # 네트워크 연결 상태 확인
+```
+
+ping은 네트워크 문제를 진단하거나 서버 가용성 및 네트워크 성능 테스트를 위해 사용한다.
+
 ## VIM
+
+vim이란 터미널을 통해서 텍스트를 편집할 수 있는 에디터다.
+
+**(vimtutor 명령어를 입력하면 vim 연습 내용이 나옴)**
+
+vim에는 일반모드, 입력모드, 명령모드가 존재한다.
+
+**일반모드**
+
+**입력모드**
+
+```bash
+a #
+i
+s
+o
+```
+
+**명령모드**
+
+esc를 누르면 명령모드다.
+
+```bash
+:w # 저장하기
+
+:q # 종료하기
+:q! # 깅제 종료하기
+
+:wq # 저장하면서 종료하기
+:wq! # 저장하면서 강제 종료하기
+```
 
 ## Apache
 
@@ -327,6 +408,9 @@ mv 이동할디렉토리 대상디렉토리
 클라이언트 (=웹 브라우저)로부터 HTTP 요청을 받아들이고 HTML 문서와 같은 웹페이지를 반환하는 컴퓨터 프로그램.
 
 정적인 웹에서는 단순히 HTML만 있으면 되기에 아파치만 있으면 된다. 그러나 동적인 웹은 보통 php, MySQL을 연계해서 사용 (APM)
+
+## Nodejs
+
 
 ## 명령어 게임
 
