@@ -89,4 +89,19 @@ curl -I http://localhost # 200
 
 https로 접속하는데 왜 `<VirtualHost *:80>` 로 하는 가. `<VirtualHost *:443>` 해야하는 거 아닌가? 라는 생각이 들었지만 AWS에서 HTTPS를 설정했으므로 아파치에서는 SSL을 설정할 필요도, 443 포트를 열 필요도 없다. (AWS가 해주기 떄문)
 
+### 요약
+
+1. Apache 서버는 정상 작동 중이고
+
+2. curl -I http://localhost 요청도 200 OK 응답함
+
+3. 에러 로그도 없고, 정상 요청 로그도 찍힘
+
+```bash
+ubuntu@ip-172-31-7-202:~$ cat /var/log/apache2/shhyi.store_error.log
+
+ubuntu@ip-172-31-7-202:~$ cat /var/log/apache2/shhyi.store_access.log
+13.124.53.132 - - [10/Jul/2025:07:30:15 +0000] "HEAD / HTTP/1.1" 200 255 "-" "curl/8.5.0"
+```
+
 근데도 왜 502가 나는가?
