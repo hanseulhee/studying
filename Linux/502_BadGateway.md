@@ -53,9 +53,9 @@ sudo nano /etc/apache2/sites-available/shhyi.store.conf
     </Directory>
 
 # 오류 내용 기록
-    ErrorLog ${APACHE_LOG_DIR}/shhyi_error.log
+    ErrorLog ${APACHE_LOG_DIR}/shhyi.store_error.log
 # 누가 접속했는 지 기록
-    CustomLog ${APACHE_LOG_DIR}/shhyi_access.log combined
+    CustomLog ${APACHE_LOG_DIR}/shhyi.store_access.log combined
 </VirtualHost>
 ```
 
