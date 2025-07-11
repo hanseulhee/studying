@@ -105,3 +105,9 @@ ubuntu@ip-172-31-7-202:~$ cat /var/log/apache2/shhyi.store_access.log
 ```
 
 근데도 왜 502가 나는가?
+
+# AWS 포트 설정때문!!
+
+<img width="50%" height="50%" alt="Image" src="https://github-production-user-asset-6210df.s3.amazonaws.com/63100352/465030954-e4d94553-073b-427f-9d63-c3268dd5eae7.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250711%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250711T015000Z&X-Amz-Expires=300&X-Amz-Signature=5485599a0fa7f32fa94cbe60bb40f2bd21bda953381b3b76928aba65630e1e6d&X-Amz-SignedHeaders=host" />
+
+해결완료
