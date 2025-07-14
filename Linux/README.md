@@ -20,6 +20,8 @@
 
 [Node.js](./#Nodejs)
 
+[MySQL](./#MySQL)
+
 [502 Bad Gateway](/Linux/502_BadGateway.md)
 
 [명령어 게임](./#리눅스-명령어)
@@ -381,6 +383,8 @@ a #
 i
 s
 o
+
+x # 지우기
 ```
 
 **명령모드**
@@ -411,6 +415,100 @@ esc를 누르면 명령모드다.
 
 ## Nodejs
 
+nodejs란 자바스크립트로 서버를 구축하고 서버에서 자바스크립트가 작동되도록 해주는 런타임 환경
+
+## MySQL
+
+데이터를 기록하는 최종적인 곳은 표(=table)
+
+표들을 그룹화 한 것을 데이터베이스. 즉, 스키마 (폴더화 한 것). 스키마는 서로 연관된 표들을 그룹화해준다.
+
+이러한 스키마가 모여있는 곳을 데이터베이스 서버라고 한다. (mySQL == 데이터베이스)
+
+**스키마**
+
+```bash
+# 생성
+CREATE DATABASE shsql;
+
+# 조회
+SHOW DATABASES;
+
+# shsql을 대상으로 명령을 시행한다
+USE shsql
+```
+
+SQL(=Structured Query Language)
+
+### 컬럼 생성
+
+```bash
+CREATE TABLE 테이블명(
+    컬럼명 타입(타입에 맞게 숫자 설정)
+)
+
+
+컬럼명 타입(타입에 맞게 숫자 설정) NOT NULL # 값이 없는 것을 허용하지 않음
+컬럼명 타입(타입에 맞게 숫자 설정) NULL # 값이 없는 것을 허용함
+컬럼명 타입(타입에 맞게 숫자 설정) AUTO_INCREMENT # 자동으로 1씩 증가
+```
+
+### CRUD
+
+**create**
+
+```bash
+INSERT INTO 테이블명 (테이블키) VALUES(테이블값);
+# NOW() 는 현재 시간
+```
+
+<img width="674" height="130" alt="Image" src="https://github.com/user-attachments/assets/e35d7097-6621-40fe-874e-99bf52ecc93a" />
+
+**read**
+
+```bash
+# 테이블의 전체 내용 조회
+SELECT * FROM 테이블명;
+```
+
+```bash
+# 특정 컬럼만 조회
+SELECT 조회하고싶은컬럼 FROM 테이블명;
+```
+
+```bash
+# 특정 데이터의 행만 조회
+SELECT 조회하고싶은컬럼 FROM 테이블명 WHERE 특정키=특정데이터;
+```
+
+```bash
+# 정렬
+ORDER BY id DESC; # id 기준 정렬
+
+ORDER BY id LIMIT 2; # 2개만 보고싶을 때
+```
+
+**update**
+
+```bash
+UPDATE 테이블명 SET 수정하고싶은키=수정데이터 WHERE 특정키=특정데이터;
+```
+
+**delete**
+
+```bash
+DELETE FROM 테이블명 WHERE 삭제하고자하는키=삭제하고자하는데이터;
+```
+
+**왜 관계형 데이터베이스가 필요한가?**
+
+데이터가 중복되고 있다? 개선할 것이 있구나..!
+
+**테이블명 수정**
+
+```bash
+RENAME TABLE 테이블명 TO 바꿀테이블명
+```
 
 ## 명령어 게임
 
