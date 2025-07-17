@@ -102,6 +102,62 @@
 
 ex) vscode, 카톡, 게임 등등
 
+## 리눅스에서 CPU/메모리 상태 확인하기
+
+메모리 사용량 확인하기
+
+```bash
+free -h
+```
+
+cpu 정보 확인하기
+
+```bash
+lscpu
+```
+
+cpu 상세정보 조회
+
+```bash
+# 시스템의 CPU 정보를 담고있는 파일
+cat /proc/cpuinfo
+
+# 시스템 및 GPU의 다양한 통계를 담고있는 파일
+cat /proc/stat
+```
+
+메모리 상세정보 조회
+
+```bash
+cat /proc/meminfo
+
+# 총 메모리 용량 확인
+cat /proc/meminfo | grep MemTotal
+
+# 사용 가능한 메모리 용량 확인
+cat /proc/meminfo | grep MemFree
+```
+
+실시간으로 시스템 상태(CPU 사용률, 메모리 사용량등)을 보여준다.
+
+```bash
+top
+htop
+```
+
+앱이 사용한 CPU 사용량 확인하기
+
+```bash
+sudo apt install sysstat
+mpstat
+```
+
+디스크 용량 확인하기
+
+```bash
+fdisk -l
+```
+
 ## User
 
 **사용자 분류**
@@ -353,7 +409,7 @@ netstat -r # 게이트웨이 주소 확인
 ```
 
 ```bash
-hostname # 호스트네임 조히
+hostname # 호스트네임 조회
 ```
 
 ```bash
@@ -510,6 +566,256 @@ DELETE FROM 테이블명 WHERE 삭제하고자하는키=삭제하고자하는데
 RENAME TABLE 테이블명 TO 바꿀테이블명
 ```
 
+### JOIN
+
+나눠둔 테이블을 하나의 테이블로 결합하는 것
+
+[SQL Joins Visualizer](https://sql-joins.leopard.in.ua/)
+
+```bash
+SELECT * FROM 테이블명1 LEFT JOIN 테이블명2 ON 어떻게합성될지에대한조건;
+
+# topic 테이블과 author 테이블을 LEFT JOIN하여 관련 정보를 모두 조회
+ex) SELECT * FROM topic LEFT JOIN author ON topic.author_id = author.id;
+
+# topic 테이블의 id는 topic_id라는 이름으로 변경하고 topic.author_id와 author.id가 같으면 title, name, profile을 포함한 테이블을 만든다.
+SELECT topic.id AS topic_id, title, name, profile FROM topic LEFT JOIN author ON topic.author_id = author.id;
+```
+
+**문법정리**
+
+```sql
+/*별칭 정하기*/
+AS
+
+/*컬럼 별칭*/
+SELECT 컬럼명 AS 컬럼별칭
+/*테이블 별칭*/
+FROM 테이블명 AS 테이블별칭
+
+/*날짜를 지정한 형식으로 출력*/
+DATE_FORMAT(날짜, 형식)
+/*예시) 2025-07-16*/
+SELECT DATE_FORMAT(NOW(),'%Y-%m-%d');
+
+/*WHERE절 연산자*/
+AND
+OR
+IN
+NOT
+
+/*오름차순*/
+ASC
+
+/*내림차순*/
+DESC
+```
+
+WHERE절 연산자에서 괄호를 사용하지 않으면 기본적으로 OR보다 AND연산을 먼저 평가한다.
+
+그냥 JOIN은 내부적으로 INNER JOIN을 의미한다.
+
+- INNER JOIN: 교집합
+- LEFT JOIN: 왼쪽 테이블은 다 보여주고, 오른쪽은 조건에 맞는 것만 붙여줌
+- RIGHT JOIN: 오른쪽 테이블은 다 보여주고, 왼쪽은 조건에 맞는 것만 붙여줌
+
+**GROUP BY**
+
+데이터를 그룹화하는 것
+
+같은 값을 가진 행끼리 하나의 그룹으로 뭉쳐줌.
+
+```sql
+HAVING
+```
+
+GROUP BY 절에서 조건을 주려면 WHERE이 아닌, HAVING 절을 사용해야 한다.
+
+**COUNT**
+
+```sql
+COUNT(*)
+```
+
+조회되는 데이터 개수 반환
+
+**LIMIT**
+
+```sql
+LIMIT 재한갯수
+```
+
+**DISTINCT**
+
+옆에 온 모든 컬럼을 고려하여 중복 제거한다.
+
+```sql
+DISTINCT 컬럼명
+```
+
+**IFNULL**
+
+NULL을 반환할 때 다른 값으로 출력할 수 있도록 한다.
+
+```sql
+SELECT IFNULL(컬럼명, "NULL일경우대체값") FROM 테이블명
+```
+
+**COALESCE**
+
+두 컬럼 중 한 값이 Null이라면 Null값이 아닌 값으로 대체되며 두값 모두 Null이라면 Null이 반환된다.
+
+```sql
+SELECT A, B, COALESCE(A, B)
+FROM TABLE_A
+```
+
+**LIKE**
+
+WHERE 절에서 문자열 검색을 위해 사용한다.
+
+```sql
+/*A로 시작하는 문자 찾기*/
+SELECT 컬럼명
+FROM 테이블명
+WHERE 컬럼명 LIKE 'A%'
+
+/*A로 끝나는 문자 찾기*/
+LIKE '%A'
+
+/*A를 포함하는 문자 찾기*/
+LIKE '%A%'
+
+/*앞의 두글자는 상관없이 뒤가 A인 것*/
+LIKE '__A'
+
+/*뒤의 한글자는 상관없이 앞이 A인 것*/
+LIKE 'A_'
+```
+
+**IF**
+
+```sql
+IF(조건, 조건이 참일 때, 조건이 거짓일 때)
+
+SELECT IF(1>0, "Yes", "No") /*Yes*/
+```
+
+**CASE**
+
+조건을 여러가지 지정하고 싶을 때 사용한다.
+
+```sql
+CASE
+    WHEN 조건 THEN True일경우값 ELSE False일경우값
+```
+
+ELSE 절이 없으면 NULL을 반환한다.
+
+**ROUND**
+
+지정한 자릿수까지 반올림해준다.
+
+```sql
+ROUND(깂, 반올림할위치)
+```
+
+반올림할 위치
+
+0: 소수점 모두 반올림
+
+1: 소수점 첫째자리까지 반올림
+
+2: 소수점 두번째자리까지 반올림
+
+**AVG**
+
+지정된 컬럼의 평균값을 계산한다.
+
+```sql
+AVG(컬럼명)
+```
+
+**DATEDIFF**
+
+시작일과 종료일 사이의 일수를 계산한다.
+
+DATEDIFF는 종료일을 포함하지 않는다. +1을 추가해 종료일을 포함한 날짜 차이를 계산한다.
+
+```sql
+DATEDIFF(종료일, 시작일)
+```
+
+**IN**
+
+IN 연산자 중에 하나라도 일치하는 것이 있으면 리스트에 조회된다.
+
+**NOT IN**
+
+NOT IN 연산자는 입력된 값을 제외한 나머지 데이터가 조회된다.
+
+**비트연산자**
+
+AND 연산 (&): 두 비트가 모두 1일 때만 1을 반환한다.
+
+OR 연산 (|): 두 비트 중 하나라도 1이면 1을 반환한다.
+
+XOR 연산 (^): 두 비트가 다르면 1, 같으면 0을 반환한다.
+
+NOT 연산 (~): 비트를 반전시킨다.
+
+### programmers sql 문제풀이
+
+**SELECT**
+
+[조건에 부합하는 중고거래 댓글 조회하기](./Programmers/SELECT/조건에부합하는중고거래댓글조회하기/index.sql)
+[조건에 맞는 회원 수 구하기](./Programmers/SELECT/조건에맞는회원수구하기/index.sql)
+[재구매가 일어난 상품과 회원리스트 구하기](./Programmers/SELECT/재구매가일어난상품과회원리스트구하기/index.sql)
+[인기있는 아이스크림](./Programmers/SELECT/인기있는아이스크림/index.sql)
+[역순 정렬하기](./Programmers/SELECT/역순정렬하기/index.sql)
+[여러 기준으로 정렬하기](./Programmers/SELECT/여러기준으로정렬하기/index.sql)
+[어린 동물찾기](./Programmers/SELECT/어린동물찾기/index.sql)
+[아픈 동물찾기](./Programmers/SELECT/아픈동물찾기/index.sql)
+[상위 n개 레코드](./Programmers/SELECT/상위n개레코드/index.sql)
+[동물의 아이디와 이름](./Programmers/SELECT/동물의아이디와이름/index.sql)
+[강원도에 위치한 생산 공장 목록출력하기](./Programmers/SELECT/강원도에위치한생산공장목록출력하기/index.sql)
+[가장 큰 물고기 10마리 구하기](./Programmers/SELECT/가장큰물고기10마리구하기/index.sql)
+[3월에 태어난 여성 회원 목록출력하기](./Programmers/SELECT/3월에태어난여성회원목록출력하기/index.sql)
+
+**SUM, MAX, MIN**
+
+[가격이 제일 비싼 식품의 정보 출력하기](./Programmers/SUM_MAX_MIN/가격이제일비싼식품의정보출력하기/index.sql)
+[가장 비싼 상품구하기](./Programmers/SUM_MAX_MIN/가장비싼상품구하기/index.sql)
+[동물 수 구하기](./Programmers/SUM_MAX_MIN/동물수구하기/index.sql)
+[조건에 맞는 아이템들의 가격의 총합 구하기](./Programmers/SUM_MAX_MIN/조건에맞는아이템들의가격의총합구하기/index.sql)
+[중복 제거하기](./Programmers/SUM_MAX_MIN/중복제거하기/index.sql)
+[최댓값 구하기](./Programmers/SUM_MAX_MIN/최댓값구하기/index.sql)
+[최솟값 구하기](./Programmers/SUM_MAX_MIN/최솟값구하기/index.sql)
+
+**GROUP BY**
+
+[고양이와 개는 몇마리있을까](./Programmers/GROUPBY/고양이와개는몇마리있을까/index.sql)
+[동명 동물 수 찾기](./Programmers/GROUPBY/동명동물수찾기/index.sql)
+[성분으로 구분한 아이스크림 총 주문량](./Programmers/GROUPBY/성분으로구분한아이스크림총주문량/index.sql)
+
+**IS NULL**
+
+[경기도에 위치한 식품 창고 목록출력하기](./Programmers/ISNULL/경기도에위치한식품창고목록출력하기/index.sql)
+[나이 정보가 없는 회원 수 구하기](./Programmers/ISNULL/나이정보가없는회원수구하기/index.sql)
+[이름이 없는 동물의 아이디](./Programmers/ISNULL/이름이없는동물의아이디/index.sql)
+[이름이 있는 동물의 아이디](./Programmers/ISNULL/이름이있는동물의아이디/index.sql)
+
+**JOIN**
+
+[상품별 오프라인 매출구하기](./Programmers/JOIN/상품별오프라인매출구하기/index.sql)
+[없어진 기록찾기](./Programmers/JOIN/없어진기록찾기/index.sql)
+[조건에 맞는 도서와 저자리스트 출력하기](./Programmers/JOIN/조건에맞는도서와저자리스트출력하기/index.sql)
+
+**STRING, DATE**
+
+[특정 옵션이 포함된 자동차 리스트 구하기](./Programmers/STRING_DATE/특정옵션이포함된자동차리스트구하기/index.sql)
+[한 해에 잡은 물고기 수 구하기](./Programmers/STRING_DATE/한해에잡은물고기수구하기/index.sql)
+
 ## 명령어 게임
 
 [리눅스 명령어](http://overthewire.org/wargames/bandit/)
@@ -616,3 +922,128 @@ grep
 ```bash
 ip addr show # ens 아래있는 inet 옆 주소
 ```
+
+MAX는 SELECT절이나 HAVING절에서만 가능하면 WHERE절에서는 사용할 수 없음
+
+ON은 JOIN에 사용하는 키워드.
+
+**ON vs WHERE**
+
+ON은 조인 조건을 설정한다. 즉 두 테이블을 어떻게 연결할 지 결정하는 조건.
+
+WHERE은 결과 필터링 조건이다. 조인이 완료되고 나서, 필터링할 조건이다.
+
+**ON vs GROUP BY**
+
+ON은 두 퍼즐을 붙이기 위한 조건.
+
+GROUP BY는 조립된 퍼즐 중에서 비슷한 색끼리 모으기.
+
+특정 컬럼 기준으로 집계(SUM, COUNT, AVG 등) 할 때는 왠만하면 GROUP BY를 같이 씀
+
+## useradd VS adduser
+
+두 명령어는 사용자 계정을 만드는 명령어다.
+
+### useradd
+
+계정을 생성할 때 필요한 모든 옵션들을 명시해야한다.
+
+옵션없이 아래와 같이 작성 시 단순히 계정만 생기며, 홈디렉토리나 비밀번호, 사용자 정보 등은 따로 설정해야한다. 또한 기본 쉘인 sh가 할당된다.
+
+```bash
+sudo useradd hanseulhee
+```
+
+### adduser
+
+useradd와 달리 홈디렉토리나 비밀번호 사용자 정보 등을 자동으로 입력받게 해준다. 또한 사용자가 설정한 기본 쉘을 사용자의 쉘로 지정한다.
+
+```bash
+sudo adduser hanseulhee
+```
+
+즉, useradd는 순수하게 **계정** 만 만들어주고 비밀번호 등 사용자 관련 설정을 따로 설정해줘야한다.
+
+adduser은 계정 생성 시 비밀번호 등을 입력받으며 사용자 관련 설정을 자동생성한다. 따라서 특별한 상황이 아니라면 adduser 를 쓰는 게 낫겠다.
+
+## rwx
+
+rwx는 리눅스에서 파일이나 디렉토리에 대한 접근 권한을 나타내는 문자 조합이다.
+
+아래와 같은 명령어로 권한을 확인할 수 있다.
+
+```bash
+ls -l
+```
+
+r(읽기권한) w(쓰기권한) x(실행권한)
+
+r : 4, w: 2, x: 2
+
+(x권한이 있어야만 해당 디렉토리로 이동할 수 있다.)
+
+파일권한은 4개로 등분하여 확인이 가능하다.
+
+`파일의 종류 / 소유자(=파일을 만든 사람)의 권한 / 그룹 권한 / 타인의 권한(=global 권한 설정)`
+
+따라서 777이라는 것은 사용자의 읽기, 쓰기, 실행권한을 모두 부여했다는 의미다.
+
+파일: 기본은 666 (rw-rw-rw-)
+
+디렉토리: 기본은 777 (rwxrwxrwx)
+
+**파일의 종류**
+
+d: 디렉토리, -: 일반 파일
+
+```sql
+/*권한이 전혀 부여되지 않음*/
+---
+
+/*권한이 전체 부여됨*/
+rwxrwxrwx
+```
+
+### chmod
+
+`chmod`를 사용하여 rwx 권한을 변경할 수 있다.
+
+u(user), g(group), o(other), a(user, group, other)
+
+- (권한주기), - (권한뺏기), = (권한덮어쓰기)
+
+```bash
+# 예시
+chmod g-r filename # 그룹의 file 읽기권한 삭제
+```
+
+## DB
+
+DB (DataBase): 데이터를 저장 및 관리하는 공간
+
+DBMS(=DataBase Management System): 사용자의 명령을 DB에 전달하고, DB에서 받아온 응답을 사용자에게 전달해주는 사용자와 DB사이의 프로그램. 즉, DB를 관리하는 소프트웨어
+
+ex) MYSQL, ORACLE
+
+RDBMS(=Relational Database Management System): 데이터를 행과 열로 구성된 테이블 형태로 저장하는 DBMS
+
+SQL은 RDBMS에 명령을 내리기 위한 언어다.
+
+## 트랜잭션
+
+하나의 작업 단위로 처리되는 데이터베이스들의 묶음.
+
+즉, 여러개의 작업이 한꺼번에 실행되어야 할 때 사용한다.
+ex) 은행 이체 시 돈을 빼는 작업과 돈을 넣는 작업이 모두 성공해야함
+
+```bash
+START TRANSACTION;
+
+UPDATE accounts SET balance = balance - 100 WHERE user_id = 'A';
+UPDATE accounts SET balance = balance + 100 WHERE user_id = 'B';
+
+COMMIT;
+```
+
+둘다 실패하면 ROLLBACK
