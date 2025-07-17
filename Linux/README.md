@@ -24,9 +24,15 @@
 
 [502 Bad Gateway](/Linux/502_BadGateway.md)
 
+[programmers sql 문제풀이](./#programmers-sql-문제풀이)
+
+[DB](./#DB)
+
 [명령어 게임](./#리눅스-명령어)
 
 [관련 메모장](./#관련-메모장)
+
+[useradd VS adduser](./#useradd-VS-adduser)
 
 ---
 
@@ -764,56 +770,82 @@ XOR 연산 (^): 두 비트가 다르면 1, 같으면 0을 반환한다.
 
 NOT 연산 (~): 비트를 반전시킨다.
 
-### programmers sql 문제풀이
+## programmers sql 문제풀이
 
 **SELECT**
 
 [조건에 부합하는 중고거래 댓글 조회하기](./Programmers/SELECT/조건에부합하는중고거래댓글조회하기/index.sql)
+
 [조건에 맞는 회원 수 구하기](./Programmers/SELECT/조건에맞는회원수구하기/index.sql)
+
 [재구매가 일어난 상품과 회원리스트 구하기](./Programmers/SELECT/재구매가일어난상품과회원리스트구하기/index.sql)
+
 [인기있는 아이스크림](./Programmers/SELECT/인기있는아이스크림/index.sql)
+
 [역순 정렬하기](./Programmers/SELECT/역순정렬하기/index.sql)
+
 [여러 기준으로 정렬하기](./Programmers/SELECT/여러기준으로정렬하기/index.sql)
+
 [어린 동물찾기](./Programmers/SELECT/어린동물찾기/index.sql)
+
 [아픈 동물찾기](./Programmers/SELECT/아픈동물찾기/index.sql)
+
 [상위 n개 레코드](./Programmers/SELECT/상위n개레코드/index.sql)
+
 [동물의 아이디와 이름](./Programmers/SELECT/동물의아이디와이름/index.sql)
+
 [강원도에 위치한 생산 공장 목록출력하기](./Programmers/SELECT/강원도에위치한생산공장목록출력하기/index.sql)
+
 [가장 큰 물고기 10마리 구하기](./Programmers/SELECT/가장큰물고기10마리구하기/index.sql)
+
 [3월에 태어난 여성 회원 목록출력하기](./Programmers/SELECT/3월에태어난여성회원목록출력하기/index.sql)
 
 **SUM, MAX, MIN**
 
 [가격이 제일 비싼 식품의 정보 출력하기](./Programmers/SUM_MAX_MIN/가격이제일비싼식품의정보출력하기/index.sql)
+
 [가장 비싼 상품구하기](./Programmers/SUM_MAX_MIN/가장비싼상품구하기/index.sql)
+
 [동물 수 구하기](./Programmers/SUM_MAX_MIN/동물수구하기/index.sql)
+
 [조건에 맞는 아이템들의 가격의 총합 구하기](./Programmers/SUM_MAX_MIN/조건에맞는아이템들의가격의총합구하기/index.sql)
+
 [중복 제거하기](./Programmers/SUM_MAX_MIN/중복제거하기/index.sql)
+
 [최댓값 구하기](./Programmers/SUM_MAX_MIN/최댓값구하기/index.sql)
+
 [최솟값 구하기](./Programmers/SUM_MAX_MIN/최솟값구하기/index.sql)
 
 **GROUP BY**
 
 [고양이와 개는 몇마리있을까](./Programmers/GROUPBY/고양이와개는몇마리있을까/index.sql)
+
 [동명 동물 수 찾기](./Programmers/GROUPBY/동명동물수찾기/index.sql)
+
 [성분으로 구분한 아이스크림 총 주문량](./Programmers/GROUPBY/성분으로구분한아이스크림총주문량/index.sql)
 
 **IS NULL**
 
 [경기도에 위치한 식품 창고 목록출력하기](./Programmers/ISNULL/경기도에위치한식품창고목록출력하기/index.sql)
+
 [나이 정보가 없는 회원 수 구하기](./Programmers/ISNULL/나이정보가없는회원수구하기/index.sql)
+
 [이름이 없는 동물의 아이디](./Programmers/ISNULL/이름이없는동물의아이디/index.sql)
+
 [이름이 있는 동물의 아이디](./Programmers/ISNULL/이름이있는동물의아이디/index.sql)
 
 **JOIN**
 
 [상품별 오프라인 매출구하기](./Programmers/JOIN/상품별오프라인매출구하기/index.sql)
+
 [없어진 기록찾기](./Programmers/JOIN/없어진기록찾기/index.sql)
+
 [조건에 맞는 도서와 저자리스트 출력하기](./Programmers/JOIN/조건에맞는도서와저자리스트출력하기/index.sql)
 
 **STRING, DATE**
 
 [특정 옵션이 포함된 자동차 리스트 구하기](./Programmers/STRING_DATE/특정옵션이포함된자동차리스트구하기/index.sql)
+
 [한 해에 잡은 물고기 수 구하기](./Programmers/STRING_DATE/한해에잡은물고기수구하기/index.sql)
 
 ## 명령어 게임
