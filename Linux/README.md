@@ -800,6 +800,16 @@ NOT 연산 (~): 비트를 반전시킨다.
 
 [3월에 태어난 여성 회원 목록출력하기](./Programmers/SELECT/3월에태어난여성회원목록출력하기/index.sql)
 
+[흉부외과 또는 일반외과 의사 목록 출력하기](./Programmers/SELECT/흉부외과또는일반외과의사목록출력하기/index.sql)
+
+[12세 이하인 여자 환자 목록 출력하기](./Programmers/SELECT/12세이하인여자환자목록출력하기/index.sql)
+
+[조건에 맞는 도서 리스트 출력하기](./Programmers/SELECT/조건에맞는도서리스트출력하기/index.sql)
+
+[잔챙이 잡은 수 구하기](./Programmers/SELECT/잔챙이잡은수구하기/index.sql)
+
+[특정 물고기를 잡은 총 수 구하기](./Programmers/SELECT/특정물고기를잡은총수구하기/index.sql)
+
 **SUM, MAX, MIN**
 
 [가격이 제일 비싼 식품의 정보 출력하기](./Programmers/SUM_MAX_MIN/가격이제일비싼식품의정보출력하기/index.sql)
@@ -847,6 +857,12 @@ NOT 연산 (~): 비트를 반전시킨다.
 [특정 옵션이 포함된 자동차 리스트 구하기](./Programmers/STRING_DATE/특정옵션이포함된자동차리스트구하기/index.sql)
 
 [한 해에 잡은 물고기 수 구하기](./Programmers/STRING_DATE/한해에잡은물고기수구하기/index.sql)
+
+[루시와 엘라 찾기](./Programmers/STRING_DATE/루시와엘라찾기/index.sql)
+
+[이름에 el이 들어가는 동물 찾기](./Programmers/STRING_DATE/이름에el들어가는동물찾기/index.sql)
+
+[DATETIME에서 DATE로 형 변환](./Programmers/STRING_DATE/DATETIME에서DATE로형변환/index.sql)
 
 ## 명령어 게임
 
@@ -972,6 +988,10 @@ ON은 두 퍼즐을 붙이기 위한 조건.
 GROUP BY는 조립된 퍼즐 중에서 비슷한 색끼리 모으기.
 
 특정 컬럼 기준으로 집계(SUM, COUNT, AVG 등) 할 때는 왠만하면 GROUP BY를 같이 씀
+
+**Null**
+
+Null 비교는 IS NULL 혹은 IS NOT NULL만 가능하다
 
 ## useradd VS adduser
 
